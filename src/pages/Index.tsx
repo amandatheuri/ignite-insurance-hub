@@ -1,40 +1,103 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Phone, Mail, MapPin, Shield, Car, Home, Heart, Building2, CheckCircle, Star } from "lucide-react";
-import theoryLogo from "@/assets/theory-logo.png";
+import { Phone, Mail, MapPin, Shield, Car, Home, Heart, Building2, CheckCircle, Star, Search, Menu, X } from "lucide-react";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import theoryLogo from "@/assets/logobackground.png";
 import heroOffice from "@/assets/hero-office.jpg";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 
 const Index = () => {
+   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-r from-primary to-secondary shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <img src={theoryLogo} alt="Theory Insurance Agency" className="h-12 w-auto brightness-0 invert" />
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#services" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">Services</a>
-              <a href="#about" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">About</a>
-              <a href="#contact" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">Contact</a>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">Login</Button>
-              <Button variant="secondary">Get Quote</Button>
+     <header>
+      {/* 🔹 Top Gradient Bar */}
+      <div className="bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+          {/* Left - Phone */}
+          <div className="flex items-center gap-2">
+            <Phone size={16} />
+            <span>+254 700 296 850</span>
+          </div>
+
+          {/* Center - Email */}
+          <div className="hidden md:flex items-center gap-2">
+            <Mail size={16} />
+            <span>support@theoryinsurance.com</span>
+          </div>
+
+          {/* Right - Links + Social */}
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:underline">FAQs</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+            <div className="flex gap-3">
+              <FaFacebookF className="cursor-pointer hover:text-secondary-foreground" />
+              <FaTwitter className="cursor-pointer hover:text-secondary-foreground" />
+              <FaLinkedinIn className="cursor-pointer hover:text-secondary-foreground" />
             </div>
           </div>
         </div>
-      </header>
+      </div>
+
+      {/* 🔹 Main White Navbar */}
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+          {/* Left - Logo */}
+          <div className="flex items-center gap-2">
+            <img src={theoryLogo} alt="Logo" className="h-20 w-auto" />
+          </div>
+
+          {/* Center - Desktop Nav */}
+          <nav className="hidden md:flex gap-8 text-foreground font-medium">
+            <a href="#our-story" className="hover:text-primary">Our Story</a>
+            <a href="#risk" className="hover:text-primary">Risk Consulting</a>
+            <a href="#benefits" className="hover:text-primary">Employee Benefits</a>
+            <a href="#bonds" className="hover:text-primary">Bonds & Guarantees</a>
+            <a href="#planning" className="hover:text-primary">Financial Planning</a>
+          </nav>
+
+          {/* Right - Location + Search + Mobile Menu */}
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-2 text-muted-foreground">
+              <MapPin size={18} />
+              <span>Nairobi, Kenya</span>
+            </div>
+            <button className="hidden md:flex items-center text-muted-foreground hover:text-primary">
+              <Search size={20} />
+            </button>
+
+            {/* Mobile Hamburger */}
+            <button 
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔹 Mobile Menu Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+          <a href="#our-story" className="block hover:text-primary">Our Story</a>
+          <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
+          <a href="#benefits" className="block hover:text-primary">Employee Benefits</a>
+          <a href="#bonds" className="block hover:text-primary">Bonds & Guarantees</a>
+          <a href="#planning" className="block hover:text-primary">Financial Planning</a>
+        </div>
+      )}
+    </header>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <Carousel className="relative" opts={{ loop: true, align: "start" }}>
-          <CarouselContent className="h-[600px]">
+          <CarouselContent className="h-[550px]">
             <CarouselItem>
               <div 
                 className="relative h-full bg-cover bg-center bg-no-repeat"
@@ -51,10 +114,10 @@ const Index = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Get Free Quote
+                        Our Covers
                       </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                        Learn More
+                      <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                        Get A Quote
                       </Button>
                     </div>
                   </div>
@@ -78,10 +141,10 @@ const Index = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Get Free Quote
+                        Our Covers
                       </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                        Learn More
+                       <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                        Get A Quote
                       </Button>
                     </div>
                   </div>
@@ -94,7 +157,7 @@ const Index = () => {
                 className="relative h-full bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${heroHandshake})` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
+                /*<div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>*
                 <div className="relative h-full flex items-center justify-center text-primary-foreground">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -105,10 +168,10 @@ const Index = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Get Free Quote
+                        Our Covers
                       </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                        Learn More
+                       <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                        Get A Quote
                       </Button>
                     </div>
                   </div>
