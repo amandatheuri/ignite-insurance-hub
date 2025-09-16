@@ -12,20 +12,20 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-background shadow-sm border-b">
+      <header className="bg-gradient-to-r from-primary to-secondary shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <img src={theoryLogo} alt="Theory Insurance Agency" className="h-12 w-auto" />
+              <img src={theoryLogo} alt="Theory Insurance Agency" className="h-12 w-auto brightness-0 invert" />
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">Services</a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
+              <a href="#services" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">Services</a>
+              <a href="#about" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">About</a>
+              <a href="#contact" className="text-primary-foreground hover:text-primary-foreground/80 transition-colors">Contact</a>
             </nav>
             <div className="flex items-center space-x-4">
-              <Button variant="outline">Login</Button>
-              <Button>Get Quote</Button>
+              <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">Login</Button>
+              <Button variant="secondary">Get Quote</Button>
             </div>
           </div>
         </div>
