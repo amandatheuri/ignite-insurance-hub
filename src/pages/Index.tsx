@@ -1,105 +1,104 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Phone, Mail, MapPin, Shield, Car, Home, Heart, Building2, CheckCircle, Star, Search, Menu, X } from "lucide-react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
-import theoryLogo from "@/assets/logobackground.png";
-import heroOffice from "@/assets/hero-office.jpg";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
+import heroOffice from "@/assets/hero-office.jpg";
+import theoryLogo from "@/assets/logobackground.png";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Input } from "@/components/ui/input";
+import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, X } from "lucide-react";
+import { useState } from "react";
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Index = () => {
-   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-     <header>
-      {/* 🔹 Top Gradient Bar */}
-      <div className="bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
-          {/* Left - Phone */}
-          <div className="flex items-center gap-2">
-            <Phone size={16} />
-            <span>+254 700 296 850</span>
-          </div>
+      <header>
+        {/* 🔹 Top Gradient Bar */}
+        <div className="bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+            {/* Left - Phone */}
+            <div className="flex items-center gap-2">
+              <Phone size={16} />
+              <span>+254 728 813 594</span>
+            </div>
 
-          {/* Center - Email */}
-          <div className="hidden md:flex items-center gap-2">
-            <Mail size={16} />
-            <span>support@theoryinsurance.com</span>
-          </div>
+            {/* Center - Email */}
+            <div className="hidden md:flex items-center gap-2">
+              <Mail size={16} />
+              <span>support@theoryinsurance.com</span>
+            </div>
 
-          {/* Right - Links + Social */}
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:underline">FAQs</a>
-            <a href="#contact" className="hover:underline">Contact</a>
-            <div className="flex gap-3">
-              <FaFacebookF className="cursor-pointer hover:text-secondary-foreground" />
-              <FaTwitter className="cursor-pointer hover:text-secondary-foreground" />
-              <FaLinkedinIn className="cursor-pointer hover:text-secondary-foreground" />
+            {/* Right - Links + Social */}
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:underline">FAQs</a>
+              <a href="#contact" className="hover:underline">Contact</a>
+              <div className="flex gap-3">
+                <FaFacebookF className="cursor-pointer hover:text-secondary-foreground" />
+                <FaTwitter className="cursor-pointer hover:text-secondary-foreground" />
+                <FaLinkedinIn className="cursor-pointer hover:text-secondary-foreground" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* 🔹 Main White Navbar */}
-      <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-          {/* Left - Logo */}
-          <div className="flex items-center gap-2">
-            <img src={theoryLogo} alt="Logo" className="h-20 w-auto" />
-          </div>
-
-          {/* Center - Desktop Nav */}
-          <nav className="hidden md:flex gap-8 text-foreground font-medium">
-            <a href="#our-story" className="hover:text-primary">Our Story</a>
-            <a href="#risk" className="hover:text-primary">Risk Consulting</a>
-            <a href="#benefits" className="hover:text-primary">Employee Benefits</a>
-            <a href="#bonds" className="hover:text-primary">Bonds & Guarantees</a>
-            <a href="#planning" className="hover:text-primary">Financial Planning</a>
-          </nav>
-
-          {/* Right - Location + Search + Mobile Menu */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-2 text-muted-foreground">
-              <MapPin size={18} />
-              <span>Nairobi, Kenya</span>
+        {/* 🔹 Main White Navbar */}
+        <div className="bg-white shadow">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">
+            {/* Left - Logo */}
+            <div className="flex items-center gap-2">
+              <img src={theoryLogo} alt="Logo" className="h-20 w-auto" />
             </div>
-            <button className="hidden md:flex items-center text-muted-foreground hover:text-primary">
-              <Search size={20} />
-            </button>
 
-            {/* Mobile Hamburger */}
-            <button 
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Center - Desktop Nav */}
+         <nav className="hidden md:flex gap-8 text-foreground font-medium">
+              <a href="#our-story" className="hover:text-primary">Our Story</a>
+              <a href="#risk" className="hover:text-primary">Risk Consulting</a>
+              <a href="#benefits" className="hover:text-primary">Employee Benefits</a>
+              <a href="#personal" className="hover:text-primary">Personal</a>
+              <a href="#business" className="hover:text-primary">Business</a>
+            </nav>
+            {/* Right - Location + Search + Mobile Menu */}
+            <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-2 text-muted-foreground">
+                <MapPin size={18} />
+                <span>Nairobi, Kenya</span>
+              </div>
+              <button className="hidden md:flex items-center text-muted-foreground hover:text-primary">
+                <Search size={20} />
+              </button>
+
+              {/* Mobile Hamburger */}
+              <button
+                className="md:hidden p-2"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* 🔹 Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
-          <a href="#our-story" className="block hover:text-primary">Our Story</a>
-          <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
-          <a href="#benefits" className="block hover:text-primary">Employee Benefits</a>
-          <a href="#bonds" className="block hover:text-primary">Bonds & Guarantees</a>
-          <a href="#planning" className="block hover:text-primary">Financial Planning</a>
-        </div>
-      )}
-    </header>
+        {/* 🔹 Mobile Menu Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+            <a href="#our-story" className="block hover:text-primary">Our Story</a>
+            <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
+            <a href="#benefits" className="block hover:text-primary">Employee Benefits</a>
+            <a href="#bonds" className="block hover:text-primary">Bonds & Guarantees</a>
+            <a href="#planning" className="block hover:text-primary">Financial Planning</a>
+          </div>
+        )}
+      </header>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <Carousel className="relative" opts={{ loop: true, align: "start" }}>
           <CarouselContent className="h-[550px]">
             <CarouselItem>
-              <div 
+              <div
                 className="relative h-full bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${heroOffice})` }}
               >
@@ -116,7 +115,7 @@ const Index = () => {
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
                         Our Covers
                       </Button>
-                      <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                         Get A Quote
                       </Button>
                     </div>
@@ -124,9 +123,9 @@ const Index = () => {
                 </div>
               </div>
             </CarouselItem>
-            
+
             <CarouselItem>
-              <div 
+              <div
                 className="relative h-full bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${heroFamily})` }}
               >
@@ -143,7 +142,7 @@ const Index = () => {
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
                         Our Covers
                       </Button>
-                       <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                         Get A Quote
                       </Button>
                     </div>
@@ -151,9 +150,9 @@ const Index = () => {
                 </div>
               </div>
             </CarouselItem>
-            
+
             <CarouselItem>
-              <div 
+              <div
                 className="relative h-full bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${heroHandshake})` }}
               >
@@ -170,7 +169,7 @@ const Index = () => {
                       <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
                         Our Covers
                       </Button>
-                       <Button size="lg" variant="outline"   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
                         Get A Quote
                       </Button>
                     </div>
@@ -179,7 +178,7 @@ const Index = () => {
               </div>
             </CarouselItem>
           </CarouselContent>
-          
+
           <CarouselPrevious className="left-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
           <CarouselNext className="right-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
         </Carousel>
@@ -267,7 +266,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Insurance Services</h2>
             <p className="text-xl text-muted-foreground">Comprehensive coverage for every aspect of your life</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
@@ -276,7 +275,7 @@ const Index = () => {
                 <p className="text-muted-foreground">Protect your vehicle and drive with confidence</p>
               </CardContent>
             </Card>
-            
+
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Home className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -284,7 +283,7 @@ const Index = () => {
                 <p className="text-muted-foreground">Safeguard your home and belongings</p>
               </CardContent>
             </Card>
-            
+
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -292,7 +291,7 @@ const Index = () => {
                 <p className="text-muted-foreground">Secure your family's financial future</p>
               </CardContent>
             </Card>
-            
+
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
@@ -318,7 +317,7 @@ const Index = () => {
                     <p className="text-muted-foreground">Our experienced agents help you find the perfect coverage for your unique needs</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
@@ -326,7 +325,7 @@ const Index = () => {
                     <p className="text-muted-foreground">We work with top insurers to get you the best coverage at the most affordable prices</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
@@ -336,7 +335,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-muted/30 p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6 text-center">Get Your Free Quote</h3>
               <div className="space-y-4">
@@ -360,7 +359,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-6">
               <CardContent className="pt-6">
@@ -375,7 +374,7 @@ const Index = () => {
                 <p className="font-semibold">- Sarah Johnson</p>
               </CardContent>
             </Card>
-            
+
             <Card className="p-6">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -389,7 +388,7 @@ const Index = () => {
                 <p className="font-semibold">- Michael Chen</p>
               </CardContent>
             </Card>
-            
+
             <Card className="p-6">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -414,20 +413,20 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-xl text-muted-foreground">Ready to secure your future? Contact us today</p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-4">
               <Phone className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Call Us</h3>
               <p className="text-muted-foreground">(555) 123-4567</p>
             </div>
-            
+
             <div className="space-y-4">
               <Mail className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Email Us</h3>
               <p className="text-muted-foreground">info@theoryinsurance.com</p>
             </div>
-            
+
             <div className="space-y-4">
               <MapPin className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Visit Us</h3>
@@ -445,7 +444,7 @@ const Index = () => {
               <img src={theoryLogo} alt="Theory Insurance Agency" className="h-12 w-auto mb-4 brightness-0 invert" />
               <p className="opacity-90">Think ahead, insure wisely with Theory Insurance Agency.</p>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Services</h3>
               <ul className="space-y-2 opacity-90">
@@ -455,7 +454,7 @@ const Index = () => {
                 <li>Business Insurance</li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 opacity-90">
@@ -465,7 +464,7 @@ const Index = () => {
                 <li>Blog</li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 opacity-90">
@@ -475,7 +474,7 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
             <p className="opacity-90">&copy; 2024 Theory Insurance Agency. All rights reserved.</p>
           </div>
