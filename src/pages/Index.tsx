@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Phone, Mail, MapPin, Shield, Car, Home, Heart, Building2, CheckCircle, Star } from "lucide-react";
 import theoryLogo from "@/assets/theory-logo.png";
+import heroOffice from "@/assets/hero-office.jpg";
+import heroFamily from "@/assets/hero-family.jpg";
+import heroHandshake from "@/assets/hero-handshake.jpg";
 
 const Index = () => {
   return (
@@ -28,25 +32,94 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Think Ahead, Insure Wisely
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Protecting what matters most with comprehensive insurance solutions tailored for you
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                Get Free Quote
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Learn More
-              </Button>
-            </div>
-          </div>
-        </div>
+      <section className="relative overflow-hidden">
+        <Carousel className="relative" opts={{ loop: true, align: "start" }}>
+          <CarouselContent className="h-[600px]">
+            <CarouselItem>
+              <div 
+                className="relative h-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${heroOffice})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
+                <div className="relative h-full flex items-center justify-center text-primary-foreground">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                      Think Ahead, Insure Wisely
+                    </h1>
+                    <p className="text-xl md:text-2xl mb-8 opacity-90">
+                      Protecting what matters most with comprehensive insurance solutions tailored for you
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                        Get Free Quote
+                      </Button>
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+            
+            <CarouselItem>
+              <div 
+                className="relative h-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${heroFamily})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
+                <div className="relative h-full flex items-center justify-center text-primary-foreground">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                      Protect Your Family's Future
+                    </h1>
+                    <p className="text-xl md:text-2xl mb-8 opacity-90">
+                      Comprehensive coverage for your home, auto, and everything that matters most
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                        Get Free Quote
+                      </Button>
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+            
+            <CarouselItem>
+              <div 
+                className="relative h-full bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${heroHandshake})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
+                <div className="relative h-full flex items-center justify-center text-primary-foreground">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                      Expert Insurance Guidance
+                    </h1>
+                    <p className="text-xl md:text-2xl mb-8 opacity-90">
+                      Trusted advisors helping you navigate insurance with confidence and clarity
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                        Get Free Quote
+                      </Button>
+                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          
+          <CarouselPrevious className="left-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+          <CarouselNext className="right-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+        </Carousel>
       </section>
 
       {/* Services Section */}
