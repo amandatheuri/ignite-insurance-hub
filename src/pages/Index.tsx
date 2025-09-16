@@ -122,6 +122,81 @@ const Index = () => {
         </Carousel>
       </section>
 
+      {/* Auto-Scrolling Services Band */}
+      <section className="py-8 bg-gradient-to-r from-primary to-secondary overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-scroll whitespace-nowrap">
+            <div className="flex items-center space-x-12 text-primary-foreground text-lg font-semibold">
+              <span className="flex items-center space-x-2">
+                <Car className="h-6 w-6" />
+                <span>Auto Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Home className="h-6 w-6" />
+                <span>Home Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Heart className="h-6 w-6" />
+                <span>Life Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Building2 className="h-6 w-6" />
+                <span>Business Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Shield className="h-6 w-6" />
+                <span>Health Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Car className="h-6 w-6" />
+                <span>Motorcycle Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Home className="h-6 w-6" />
+                <span>Renters Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Shield className="h-6 w-6" />
+                <span>Travel Insurance</span>
+              </span>
+              {/* Duplicate for seamless loop */}
+              <span className="flex items-center space-x-2">
+                <Car className="h-6 w-6" />
+                <span>Auto Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Home className="h-6 w-6" />
+                <span>Home Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Heart className="h-6 w-6" />
+                <span>Life Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Building2 className="h-6 w-6" />
+                <span>Business Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Shield className="h-6 w-6" />
+                <span>Health Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Car className="h-6 w-6" />
+                <span>Motorcycle Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Home className="h-6 w-6" />
+                <span>Renters Insurance</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <Shield className="h-6 w-6" />
+                <span>Travel Insurance</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
