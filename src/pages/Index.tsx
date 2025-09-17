@@ -183,12 +183,13 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
-              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
-              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
+            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
+                <Car className="h-8 w-8 text-primary" />
+              </div>
               <CardContent className="pt-6">
-                <Car className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">Auto Insurance</h3>
+                <h3 className="text-xl font-semibold mb-3 text-center">Auto Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Complete protection for your vehicle on and off the road</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
                   <li>• Liability Coverage</li>
                   <li>• Collision Protection</li>
@@ -200,12 +201,13 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
-              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
-              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
+            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
+                <Home className="h-8 w-8 text-primary" />
+              </div>
               <CardContent className="pt-6">
-                <Home className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">Home Insurance</h3>
+                <h3 className="text-xl font-semibold mb-3 text-center">Home Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Comprehensive protection for your home and personal belongings</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
                   <li>• Dwelling Protection</li>
                   <li>• Personal Property</li>
@@ -217,12 +219,13 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
-              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
-              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
+            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
+                <Heart className="h-8 w-8 text-primary" />
+              </div>
               <CardContent className="pt-6">
-                <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">Life Insurance</h3>
+                <h3 className="text-xl font-semibold mb-3 text-center">Life Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Financial security and peace of mind for your loved ones</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
                   <li>• Term Life Insurance</li>
                   <li>• Whole Life Insurance</li>
@@ -234,12 +237,13 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
-              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
-              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
+            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
+                <Building2 className="h-8 w-8 text-primary" />
+              </div>
               <CardContent className="pt-6">
-                <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-4 text-center">Business Insurance</h3>
+                <h3 className="text-xl font-semibold mb-3 text-center">Business Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Protect your business operations and safeguard your assets</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
                   <li>• General Liability</li>
                   <li>• Professional Indemnity</li>
