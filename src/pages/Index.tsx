@@ -178,40 +178,68 @@ const Index = () => {
       <section id="services" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Insurance Services</h2>
-            <p className="text-xl text-muted-foreground">Comprehensive coverage for every aspect of your life</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>
+            <p className="text-xl text-muted-foreground">Comprehensive coverage solutions tailored to your needs</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Car className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Auto Insurance</h3>
-                <p className="text-muted-foreground">Protect your vehicle and drive with confidence</p>
+                <h3 className="text-xl font-semibold mb-4 text-center">Auto Insurance</h3>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li>• Liability Coverage</li>
+                  <li>• Collision Protection</li>
+                  <li>• Comprehensive Coverage</li>
+                  <li>• Uninsured Motorist</li>
+                  <li>• Personal Injury Protection</li>
+                </ul>
+                <Button variant="outline" className="w-full">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Home className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Home Insurance</h3>
-                <p className="text-muted-foreground">Safeguard your home and belongings</p>
+                <h3 className="text-xl font-semibold mb-4 text-center">Home Insurance</h3>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li>• Dwelling Protection</li>
+                  <li>• Personal Property</li>
+                  <li>• Liability Coverage</li>
+                  <li>• Additional Living Expenses</li>
+                  <li>• Natural Disaster Coverage</li>
+                </ul>
+                <Button variant="outline" className="w-full">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Life Insurance</h3>
-                <p className="text-muted-foreground">Secure your family's financial future</p>
+                <h3 className="text-xl font-semibold mb-4 text-center">Life Insurance</h3>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li>• Term Life Insurance</li>
+                  <li>• Whole Life Insurance</li>
+                  <li>• Universal Life</li>
+                  <li>• Accidental Death</li>
+                  <li>• Critical Illness Cover</li>
+                </ul>
+                <Button variant="outline" className="w-full">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Business Insurance</h3>
-                <p className="text-muted-foreground">Protect your business operations and assets</p>
+                <h3 className="text-xl font-semibold mb-4 text-center">Business Insurance</h3>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li>• General Liability</li>
+                  <li>• Professional Indemnity</li>
+                  <li>• Property Insurance</li>
+                  <li>• Workers' Compensation</li>
+                  <li>• Cyber Liability</li>
+                </ul>
+                <Button variant="outline" className="w-full">Learn More</Button>
               </CardContent>
             </Card>
           </div>
