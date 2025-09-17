@@ -5,12 +5,17 @@ import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 import heroOffice from "@/assets/hero-office.jpg";
 import theoryLogo from "@/assets/logobackground.png";
+import cicLogo from "@/assets/CIC-logo.jpeg";
+import firstAssurance from "@/assets/First-Assurance.jpg";
+import monarchLogo from "@/assets/monarch-logo.jpg";
+import pacisLogo from "@/assets/pacis-logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, X } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import CountUp from "react-countup";
 
 
 
@@ -197,7 +202,9 @@ const Index = () => {
                   <li>• Uninsured Motorist</li>
                   <li>• Personal Injury Protection</li>
                 </ul>
-                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    Learn More
+              </Button>
               </CardContent>
             </Card>
 
@@ -215,7 +222,9 @@ const Index = () => {
                   <li>• Additional Living Expenses</li>
                   <li>• Natural Disaster Coverage</li>
                 </ul>
-                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    Learn More
+              </Button>
               </CardContent>
             </Card>
 
@@ -233,7 +242,9 @@ const Index = () => {
                   <li>• Accidental Death</li>
                   <li>• Critical Illness Cover</li>
                 </ul>
-                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    Learn More
+              </Button>
               </CardContent>
             </Card>
 
@@ -251,63 +262,90 @@ const Index = () => {
                   <li>• Workers' Compensation</li>
                   <li>• Cyber Liability</li>
                 </ul>
-                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                    Learn More
+              </Button>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+{/* Why Choose Us Section */}
+<WhyChooseUs />
+<section className="py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div className="space-y-6">
+          <div className="flex items-start space-x-4">
+            <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Theory Insurance?</h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Expert Guidance</h3>
-                    <p className="text-muted-foreground">Our experienced agents help you find the perfect coverage for your unique needs</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Competitive Rates</h3>
-                    <p className="text-muted-foreground">We work with top insurers to get you the best coverage at the most affordable prices</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-                    <p className="text-muted-foreground">Round-the-clock support when you need us most, including claims assistance</p>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-semibold mb-2">Expert Guidance</h3>
+              <p className="text-muted-foreground">Our experienced agents help you find the perfect coverage for your unique needs</p>
             </div>
+          </div>
 
-            <div className="bg-muted/30 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6 text-center">Get Your Free Quote</h3>
-              <div className="space-y-4">
-                <Input placeholder="Full Name" />
-                <Input placeholder="Email Address" type="email" />
-                <Input placeholder="Phone Number" type="tel" />
-                <Input placeholder="Type of Insurance" />
-                <Button className="w-full" size="lg">Get My Quote</Button>
-              </div>
-              <p className="text-sm text-muted-foreground mt-4 text-center">
-                No obligation. Free consultation with our experts.
-              </p>
+          <div className="flex items-start space-x-4">
+            <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Competitive Rates</h3>
+              <p className="text-muted-foreground">We work with top insurers to get you the best coverage at the most affordable prices</p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-4">
+            <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
+              <p className="text-muted-foreground">Round-the-clock support when you need us most, including claims assistance</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
+      <div className="bg-muted/30 p-8 rounded-lg">
+        <h3 className="text-2xl font-bold mb-6 text-center">Get Your Free Quote</h3>
+        <div className="space-y-4">
+          <Input placeholder="Full Name" />
+          <Input placeholder="Email Address" type="email" />
+          <Input placeholder="Phone Number" type="tel" />
+          <Input placeholder="Type of Insurance" />
+          <Button className="w-full" size="lg">Get My Quote</Button>
+        </div>
+        <p className="text-sm text-muted-foreground mt-4 text-center">
+          No obligation. Free consultation with our experts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{/* Partners Section */}
+<section className="relative py-12 bg-gradient-to-r from-primary to-secondary overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-10">
+      Our Partners
+    </h2>
+
+    {/* Logo Marquee */}
+    <div className="relative w-full overflow-hidden">
+      <div className="flex animate-scroll space-x-16">
+        {/* Logos */}
+            <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
+            <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
+            <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
+            <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
+
+            {/* Duplicate for seamless scroll */}
+                        <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
+                        <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
+                        <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
+                        <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
+      </div>
+    </div>
+  </div>
+</section>
       {/* Testimonials */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -511,6 +549,81 @@ function HeroCarousel() {
           </div>
         </div>
       ))}
+    </section>
+  );
+}
+
+function Counter({ target, duration }: { target: number; duration: number }) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    let interval: NodeJS.Timeout;
+
+    if (ref.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            let start = 0;
+            const stepTime = Math.max(duration / target, 20);
+
+            interval = setInterval(() => {
+              start += 1;
+              setValue(start);
+              if (start >= target) clearInterval(interval);
+            }, stepTime);
+          } else {
+            // Reset when leaving the viewport
+            setValue(0);
+            clearInterval(interval);
+          }
+        },
+        { threshold: 0.5 } // Trigger when 50% of section is visible
+      );
+
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      clearInterval(interval);
+      if (observer && ref.current) observer.unobserve(ref.current);
+    };
+  }, [target, duration]);
+
+  return (
+    <div ref={ref} className="text-4xl font-extrabold text-primary">
+      {value.toLocaleString()}+
+    </div>
+  );
+}
+
+export function WhyChooseUs() {
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+          Why Choose Us
+        </h2>
+        <p className="text-lg text-gray-600 mb-12">
+          Trusted by thousands of clients across the country
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div>
+            <Counter target={5000} duration={3000} />
+            <p className="mt-2 text-gray-600">Happy Clients</p>
+          </div>
+          <div>
+            <Counter target={120} duration={2000} />
+            <p className="mt-2 text-gray-600">Insurance Products</p>
+          </div>
+          <div>
+            <Counter target={15} duration={1500} />
+            <p className="mt-2 text-gray-600">Years of Experience</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
