@@ -175,11 +175,11 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-r from-primary to-secondary">
+      <section id="services" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">What We Offer</h2>
-            <p className="text-xl text-primary-foreground/90">Comprehensive coverage solutions tailored to your needs</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>
+            <p className="text-xl text-muted-foreground">Comprehensive coverage solutions tailored to your needs</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
