@@ -20,6 +20,9 @@ All colors MUST be HSL.
     --primary: 0 100% 25%;
     --primary-foreground: 210 40% 98%;
 
+    --hero: 0 60% 20%;
+    --hero-foreground: 210 40% 100%;
+
     --secondary: 226 77% 18%;
     --secondary-foreground: 210 40% 98%;
 
@@ -31,6 +34,7 @@ All colors MUST be HSL.
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;

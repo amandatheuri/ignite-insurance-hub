@@ -1,3 +1,6 @@
+"use client"
+import Autoplay from "embla-carousel-autoplay"
+import { useEffect, useRef, useState } from "react";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 import heroOffice from "@/assets/hero-office.jpg";
@@ -7,8 +10,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, X } from "lucide-react";
-import { useState } from "react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+
+
+
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -87,102 +92,12 @@ const Index = () => {
             <a href="#our-story" className="block hover:text-primary">Our Story</a>
             <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
             <a href="#benefits" className="block hover:text-primary">Employee Benefits</a>
-            <a href="#bonds" className="block hover:text-primary">Bonds & Guarantees</a>
-            <a href="#planning" className="block hover:text-primary">Financial Planning</a>
+            <a href="#bonds" className="block hover:text-primary">Personal</a>
+            <a href="#planning" className="block hover:text-primary">Business</a>
           </div>
         )}
-      </header>
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <Carousel className="relative" opts={{ loop: true, align: "start" }}>
-          <CarouselContent className="h-[550px]">
-            <CarouselItem>
-              <div
-                className="relative h-full bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroOffice})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
-                <div className="relative h-full flex items-center justify-center text-primary-foreground">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                      Think Ahead, Insure Wisely
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8 opacity-90">
-                      Protecting what matters most with comprehensive insurance solutions tailored for you
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Our Covers
-                      </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                        Get A Quote
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-
-            <CarouselItem>
-              <div
-                className="relative h-full bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroFamily})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>
-                <div className="relative h-full flex items-center justify-center text-primary-foreground">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                      Protect Your Family's Future
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8 opacity-90">
-                      Comprehensive coverage for your home, auto, and everything that matters most
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Our Covers
-                      </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                        Get A Quote
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-
-            <CarouselItem>
-              <div
-                className="relative h-full bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroHandshake})` }}
-              >
-                /*<div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/80"></div>*
-                <div className="relative h-full flex items-center justify-center text-primary-foreground">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                      Expert Insurance Guidance
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8 opacity-90">
-                      Trusted advisors helping you navigate insurance with confidence and clarity
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                        Our Covers
-                      </Button>
-                      <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                        Get A Quote
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-
-          <CarouselPrevious className="left-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
-          <CarouselNext className="right-8 bg-white/20 border-white/30 text-white hover:bg-white/30" />
-        </Carousel>
-      </section>
+</header>
+<HeroCarousel />
 
       {/* Auto-Scrolling Services Band */}
       <section className="py-8 bg-gradient-to-r from-primary to-secondary overflow-hidden">
@@ -483,5 +398,81 @@ const Index = () => {
     </div>
   );
 };
+
+const slides = [
+  {
+    image: heroOffice,
+    title: "Think Ahead, Insure Wisely",
+    subtitle:
+      "Protecting what matters most with comprehensive insurance solutions tailored for you",
+  },
+  {
+    image: heroFamily,
+    title: "Protect Your Family's Future",
+    subtitle:
+      "Comprehensive coverage for your home, auto, and everything that matters most",
+  },
+  {
+    image: heroHandshake,
+    title: "Expert Insurance Guidance",
+    subtitle:
+      "Trusted advisors helping you navigate insurance with confidence and clarity",
+  },
+];
+
+function HeroCarousel() {
+  const [current, setCurrent] = useState(0);
+  const autoplay = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
+
+  // manually cycle slides since we’re fading
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 8000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <section className="relative h-[550px] overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
+            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+          style={{ backgroundImage: `url(${slide.image})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-hero/90 to-secondary/80"></div>
+          <div className="relative h-full flex items-center justify-center text-primary-foreground">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                {slide.title}
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 opacity-90">
+                {slide.subtitle}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="text-lg px-8 py-6"
+                >
+                  Our Covers
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                >
+                  Get A Quote
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
 
 export default Index;
