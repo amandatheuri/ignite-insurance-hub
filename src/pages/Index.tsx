@@ -411,7 +411,7 @@ const Index = () => {
             <div className="space-y-4">
               <Phone className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Call Us</h3>
-              <p className="text-muted-foreground">(555) 123-4567</p>
+              <p className="text-muted-foreground">+254 22345622</p>
             </div>
 
             <div className="space-y-4">
@@ -423,7 +423,7 @@ const Index = () => {
             <div className="space-y-4">
               <MapPin className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Visit Us</h3>
-              <p className="text-muted-foreground">123 Main Street<br />City, State 12345</p>
+              <p className="text-muted-foreground">123 Langata Rd<br />City, State 12345</p>
             </div>
           </div>
         </div>
@@ -469,7 +469,7 @@ const Index = () => {
           </div>
 
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-            <p className="opacity-90">&copy; 2024 Theory Insurance Agency. All rights reserved.</p>
+            <p className="opacity-90">&copy; 2025 Theory Insurance Agency. All rights reserved.</p>
           </div>
         </div>
       </footer>
