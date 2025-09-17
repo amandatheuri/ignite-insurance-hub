@@ -183,7 +183,9 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
               <CardContent className="pt-6">
                 <Car className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4 text-center">Auto Insurance</h3>
@@ -198,7 +200,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
               <CardContent className="pt-6">
                 <Home className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4 text-center">Home Insurance</h3>
@@ -213,7 +217,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
               <CardContent className="pt-6">
                 <Heart className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4 text-center">Life Insurance</h3>
@@ -228,7 +234,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="relative p-6 hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="absolute top-0 left-0 w-16 h-16 bg-destructive/20 rounded-br-full"></div>
+              <div className="absolute top-0 left-0 w-8 h-8 bg-destructive/40 rounded-br-full"></div>
               <CardContent className="pt-6">
                 <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-4 text-center">Business Insurance</h3>
