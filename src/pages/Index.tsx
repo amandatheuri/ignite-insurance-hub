@@ -175,17 +175,17 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="services" className="py-20 bg-gradient-to-r from-primary to-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Offer</h2>
-            <p className="text-xl text-muted-foreground">Comprehensive coverage solutions tailored to your needs</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">What We Offer</h2>
+            <p className="text-xl text-primary-foreground/90">Comprehensive coverage solutions tailored to your needs</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
-                <Car className="h-8 w-8 text-primary" />
+            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
+                <Car className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-3 text-center">Auto Insurance</h3>
@@ -197,13 +197,13 @@ const Index = () => {
                   <li>• Uninsured Motorist</li>
                   <li>• Personal Injury Protection</li>
                 </ul>
-                <Button variant="outline" className="w-full">Learn More</Button>
+                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
-                <Home className="h-8 w-8 text-primary" />
+            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
+                <Home className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-3 text-center">Home Insurance</h3>
@@ -215,13 +215,13 @@ const Index = () => {
                   <li>• Additional Living Expenses</li>
                   <li>• Natural Disaster Coverage</li>
                 </ul>
-                <Button variant="outline" className="w-full">Learn More</Button>
+                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
-                <Heart className="h-8 w-8 text-primary" />
+            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
+                <Heart className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-3 text-center">Life Insurance</h3>
@@ -233,13 +233,13 @@ const Index = () => {
                   <li>• Accidental Death</li>
                   <li>• Critical Illness Cover</li>
                 </ul>
-                <Button variant="outline" className="w-full">Learn More</Button>
+                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
               </CardContent>
             </Card>
 
-            <Card className="relative pt-8 p-6 hover:shadow-lg transition-shadow">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-background border border-border rounded-full p-3">
-                <Building2 className="h-8 w-8 text-primary" />
+            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
+                <Building2 className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-3 text-center">Business Insurance</h3>
@@ -251,7 +251,7 @@ const Index = () => {
                   <li>• Workers' Compensation</li>
                   <li>• Cyber Liability</li>
                 </ul>
-                <Button variant="outline" className="w-full">Learn More</Button>
+                <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
               </CardContent>
             </Card>
           </div>
