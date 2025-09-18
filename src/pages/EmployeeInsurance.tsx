@@ -1,9 +1,13 @@
-import { Users, Stethoscope, Heart, Shield, Building2 } from "lucide-react";
+import { Users, Stethoscope, Heart, Shield, Building2, Search } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useState, useMemo } from "react";
 
 const EmployeeInsurance = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const insuranceProducts = [
     {
       title: "Medical Insurance",
@@ -50,6 +54,16 @@ const EmployeeInsurance = () => {
     }
   ];
 
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm) return insuranceProducts;
+    
+    return insuranceProducts.filter(product => 
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.coverage.some(item => item.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  }, [searchTerm]);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -69,11 +83,31 @@ const EmployeeInsurance = () => {
         </div>
       </section>
 
+      {/* Search Bar */}
+      <section className="py-8 bg-muted/20">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Input
+              placeholder="Search employee insurance products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 h-12 text-base"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Insurance Products Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {insuranceProducts.map((product, index) => (
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-lg text-muted-foreground">No employee insurance products found matching "{searchTerm}"</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {filteredProducts.map((product, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-2">
@@ -99,7 +133,8 @@ const EmployeeInsurance = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+            </div>
+          )}
 
           {/* Benefits Section */}
           <div className="bg-muted/30 rounded-lg p-8">
