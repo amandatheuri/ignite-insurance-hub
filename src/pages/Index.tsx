@@ -1,6 +1,7 @@
 "use client"
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 import heroOffice from "@/assets/hero-office.jpg";
@@ -202,8 +203,8 @@ const Index = () => {
                   <li>• Motorcycle Insurance</li>
                   <li>• Valuable Possessions</li>
                 </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    View All
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/personal-insurance">View All</Link>
               </Button>
               </CardContent>
             </Card>
@@ -222,8 +223,8 @@ const Index = () => {
                   <li>• Work Injury</li>
                   <li>• Ocean Marine</li>
                 </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    View All
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/business-insurance">View All</Link>
               </Button>
               </CardContent>
             </Card>
@@ -241,8 +242,8 @@ const Index = () => {
                   <li>• Group Life Insurance</li>
                   <li>• Group Personal Accident</li>
                 </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    View All
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/employee-insurance">View All</Link>
               </Button>
               </CardContent>
             </Card>

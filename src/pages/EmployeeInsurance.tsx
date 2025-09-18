@@ -1,0 +1,146 @@
+import { Users, Stethoscope, Heart, Shield, Building2 } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+const EmployeeInsurance = () => {
+  const insuranceProducts = [
+    {
+      title: "Medical Insurance",
+      description: "Comprehensive health coverage for your employees and their families",
+      icon: Stethoscope,
+      coverage: ["Inpatient and outpatient care", "Prescription drug coverage", "Preventive care services", "Specialist consultations", "Emergency medical treatment", "Maternity and newborn care"]
+    },
+    {
+      title: "Work Injury Coverage",
+      description: "Workers' compensation for on-the-job injuries and occupational illnesses",
+      icon: Shield,
+      coverage: ["Medical treatment costs", "Lost wage replacement", "Disability benefits", "Rehabilitation services", "Return-to-work programs", "Occupational illness coverage"]
+    },
+    {
+      title: "Group Life Insurance",
+      description: "Life insurance coverage for your employees at group rates",
+      icon: Heart,
+      coverage: ["Death benefit protection", "Accidental death coverage", "Terminal illness benefit", "Conversion options", "Portability features", "Supplemental coverage options"]
+    },
+    {
+      title: "Group Personal Accident",
+      description: "Additional accident protection for employees on and off the job",
+      icon: Users,
+      coverage: ["Accidental death benefit", "Permanent disability coverage", "Temporary disability benefits", "Medical expense reimbursement", "Rehabilitation support", "Family support benefits"]
+    }
+  ];
+
+  const benefits = [
+    {
+      title: "Attract Top Talent",
+      description: "Competitive employee benefits packages help you recruit and retain the best employees in your industry."
+    },
+    {
+      title: "Tax Advantages",
+      description: "Many employee insurance premiums are tax-deductible for employers and tax-free for employees."
+    },
+    {
+      title: "Group Buying Power",
+      description: "Group insurance plans offer better rates and coverage than individual policies."
+    },
+    {
+      title: "Employee Wellness",
+      description: "Comprehensive coverage promotes employee health and reduces absenteeism."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <section className="py-12 bg-primary/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <Link to="/" className="inline-flex items-center text-primary hover:text-primary/80 mb-4">
+              ← Back to Home
+            </Link>
+            <h1 className="text-4xl font-bold text-foreground mb-4">Employee Insurance</h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Build a comprehensive employee benefits package that attracts top talent and shows your team you care. 
+              Our group insurance solutions provide essential coverage for your employees while offering significant 
+              cost savings and tax advantages for your business.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance Products Grid */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {insuranceProducts.map((product, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <product.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">{product.title}</CardTitle>
+                  </div>
+                  <CardDescription className="text-base">{product.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm text-foreground">Coverage includes:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {product.coverage.map((item, idx) => (
+                        <li key={idx}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Button className="w-full mt-6" variant="outline">
+                    Get Group Quote
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Benefits Section */}
+          <div className="bg-muted/30 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-center mb-8">Why Offer Employee Insurance?</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="bg-primary/10 p-2 rounded-full flex-shrink-0">
+                    <Building2 className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-primary/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Build Your Employee Benefits Package?</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Our employee benefits specialists will work with you to design a comprehensive package 
+            that fits your budget and meets your employees' needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="px-8">
+              Schedule Benefits Consultation
+            </Button>
+            <Button size="lg" variant="outline" className="px-8">
+              Get Group Rates
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default EmployeeInsurance;
