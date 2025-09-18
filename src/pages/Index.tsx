@@ -1,6 +1,7 @@
 "use client"
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 import heroOffice from "@/assets/hero-office.jpg";
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
-import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, X } from "lucide-react";
+import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, Users, X } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import CountUp from "react-countup";
 
@@ -187,63 +188,23 @@ const Index = () => {
             <p className="text-xl text-muted-foreground">Comprehensive coverage solutions tailored to your needs</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
-                <Car className="h-8 w-8 text-primary-foreground" />
-              </div>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-3 text-center">Auto Insurance</h3>
-                <p className="text-sm text-muted-foreground mb-4 text-center">Complete protection for your vehicle on and off the road</p>
-                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
-                  <li>• Liability Coverage</li>
-                  <li>• Collision Protection</li>
-                  <li>• Comprehensive Coverage</li>
-                  <li>• Uninsured Motorist</li>
-                  <li>• Personal Injury Protection</li>
-                </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    Learn More
-              </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
-                <Home className="h-8 w-8 text-primary-foreground" />
-              </div>
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-3 text-center">Home Insurance</h3>
-                <p className="text-sm text-muted-foreground mb-4 text-center">Comprehensive protection for your home and personal belongings</p>
-                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
-                  <li>• Dwelling Protection</li>
-                  <li>• Personal Property</li>
-                  <li>• Liability Coverage</li>
-                  <li>• Additional Living Expenses</li>
-                  <li>• Natural Disaster Coverage</li>
-                </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    Learn More
-              </Button>
-              </CardContent>
-            </Card>
-
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
               <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
                 <Heart className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-3 text-center">Life Insurance</h3>
-                <p className="text-sm text-muted-foreground mb-4 text-center">Financial security and peace of mind for your loved ones</p>
+                <h3 className="text-xl font-semibold mb-3 text-center">Personal Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Comprehensive protection for your personal life and assets</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
-                  <li>• Term Life Insurance</li>
-                  <li>• Whole Life Insurance</li>
-                  <li>• Universal Life</li>
-                  <li>• Accidental Death</li>
-                  <li>• Critical Illness Cover</li>
+                  <li>• Home Insurance</li>
+                  <li>• Car Insurance</li>
+                  <li>• Apartment Insurance</li>
+                  <li>• Motorcycle Insurance</li>
+                  <li>• Valuable Possessions</li>
                 </ul>
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    Learn More
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/personal-insurance">View All</Link>
               </Button>
               </CardContent>
             </Card>
@@ -257,13 +218,32 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground mb-4 text-center">Protect your business operations and safeguard your assets</p>
                 <ul className="text-sm text-muted-foreground space-y-2 mb-6">
                   <li>• General Liability</li>
-                  <li>• Professional Indemnity</li>
-                  <li>• Property Insurance</li>
-                  <li>• Workers' Compensation</li>
-                  <li>• Cyber Liability</li>
+                  <li>• Business Auto</li>
+                  <li>• Commercial Property</li>
+                  <li>• Work Injury</li>
+                  <li>• Ocean Marine</li>
                 </ul>
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                    Learn More
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/business-insurance">View All</Link>
+              </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="relative pt-8 p-6 hover:shadow-xl transition-all duration-300 bg-background/95 backdrop-blur border-primary-foreground/20">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary border-2 border-primary-foreground/20 rounded-full p-3 shadow-lg">
+                <Users className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <CardContent className="pt-6">
+                <h3 className="text-xl font-semibold mb-3 text-center">Employee Insurance</h3>
+                <p className="text-sm text-muted-foreground mb-4 text-center">Comprehensive coverage solutions for your employees</p>
+                <ul className="text-sm text-muted-foreground space-y-2 mb-6">
+                  <li>• Medical Insurance</li>
+                  <li>• Work Injury Coverage</li>
+                  <li>• Group Life Insurance</li>
+                  <li>• Group Personal Accident</li>
+                </ul>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white" asChild>
+                  <Link to="/employee-insurance">View All</Link>
               </Button>
               </CardContent>
             </Card>
