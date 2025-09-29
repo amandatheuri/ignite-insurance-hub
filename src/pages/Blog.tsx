@@ -2,11 +2,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, User, Search } from "lucide-react";
+import { Calendar, Clock, User, Search, ArrowLeft } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const blogPosts = [
     {
@@ -92,11 +94,23 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Insurance Insights</h1>
-          <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
-            Stay informed with the latest insurance news, tips, and insights from our experts
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center mb-6">
+            <Button
+              variant="ghost"
+              onClick={() => navigate(-1)}
+              className="text-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+          </div>
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Insurance Insights</h1>
+            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+              Stay informed with the latest insurance news, tips, and insights from our experts
+            </p>
+          </div>
         </div>
       </header>
 
