@@ -67,9 +67,10 @@ const Index = () => {
          <nav className="hidden md:flex gap-8 text-foreground font-medium">
               <a href="#our-story" className="hover:text-primary">Our Story</a>
               <a href="#risk" className="hover:text-primary">Risk Consulting</a>
-              <a href="#benefits" className="hover:text-primary">Employee Benefits</a>
-              <a href="#personal" className="hover:text-primary">Personal</a>
-              <a href="#business" className="hover:text-primary">Business</a>
+              <Link to="/employee-insurance" className="hover:text-primary">Employee Benefits</Link>
+              <Link to="/personal-insurance" className="hover:text-primary">Personal</Link>
+              <Link to="/business-insurance" className="hover:text-primary">Business</Link>
+              <Link to="/blog" className="hover:text-primary">Blog</Link>
             </nav>
             {/* Right - Location + Search + Mobile Menu */}
             <div className="flex items-center gap-4">
@@ -97,9 +98,10 @@ const Index = () => {
           <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
             <a href="#our-story" className="block hover:text-primary">Our Story</a>
             <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
-            <a href="#benefits" className="block hover:text-primary">Employee Benefits</a>
-            <a href="#bonds" className="block hover:text-primary">Personal</a>
-            <a href="#planning" className="block hover:text-primary">Business</a>
+            <Link to="/employee-insurance" className="block hover:text-primary">Employee Benefits</Link>
+            <Link to="/personal-insurance" className="block hover:text-primary">Personal</Link>
+            <Link to="/business-insurance" className="block hover:text-primary">Business</Link>
+            <Link to="/blog" className="block hover:text-primary">Blog</Link>
           </div>
         )}
 </header>
@@ -409,6 +411,81 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Featured Blog Articles */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest Insurance Insights</h2>
+            <p className="text-xl text-muted-foreground">Stay informed with expert advice and industry updates</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <div className="aspect-video bg-muted rounded-t-lg"></div>
+              <CardContent className="p-6">
+                <div className="mb-3">
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Insurance Tips</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Understanding Your Insurance Coverage in 2024</h3>
+                <p className="text-muted-foreground mb-4 line-clamp-3">A comprehensive guide to navigating insurance policies and ensuring you have adequate protection for your needs.</p>
+                <div className="flex items-center text-sm text-muted-foreground mb-4">
+                  <span>By Sarah Johnson</span>
+                  <span className="mx-2">•</span>
+                  <span>5 min read</span>
+                </div>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/blog">Read More</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <div className="aspect-video bg-muted rounded-t-lg"></div>
+              <CardContent className="p-6">
+                <div className="mb-3">
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Cost Savings</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Top 5 Factors That Affect Your Insurance Premiums</h3>
+                <p className="text-muted-foreground mb-4 line-clamp-3">Learn about the key factors insurance companies consider when calculating your premiums and how to potentially lower costs.</p>
+                <div className="flex items-center text-sm text-muted-foreground mb-4">
+                  <span>By Michael Chen</span>
+                  <span className="mx-2">•</span>
+                  <span>7 min read</span>
+                </div>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/blog">Read More</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <div className="aspect-video bg-muted rounded-t-lg"></div>
+              <CardContent className="p-6">
+                <div className="mb-3">
+                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Business</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Business Insurance: Protecting Your Company's Future</h3>
+                <p className="text-muted-foreground mb-4 line-clamp-3">Essential business insurance types every entrepreneur should consider to safeguard their investment.</p>
+                <div className="flex items-center text-sm text-muted-foreground mb-4">
+                  <span>By Emily Rodriguez</span>
+                  <span className="mx-2">•</span>
+                  <span>6 min read</span>
+                </div>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/blog">Read More</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/blog">View All Articles</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -514,6 +591,7 @@ function HeroCarousel() {
                   size="lg"
                   variant="secondary"
                   className="text-lg px-8 py-6"
+                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Our Covers
                 </Button>
