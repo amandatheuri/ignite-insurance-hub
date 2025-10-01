@@ -9,6 +9,8 @@ import PersonalInsurance from "./pages/PersonalInsurance";
 import BusinessInsurance from "./pages/BusinessInsurance";
 import EmployeeInsurance from "./pages/EmployeeInsurance";
 import Blog from "./pages/Blog";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/business-insurance" element={<BusinessInsurance />} />
           <Route path="/employee-insurance" element={<EmployeeInsurance />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
