@@ -20,7 +20,7 @@ const Auth = () => {
     // Check if user is already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        navigate("/admin");
+        navigate("/writeblog");
       }
     });
   }, [navigate]);
@@ -42,7 +42,7 @@ const Auth = () => {
           title: "Welcome back!",
           description: "You have successfully logged in.",
         });
-        navigate("/admin");
+        navigate("/writeblog");
       } else {
         const { error } = await supabase.auth.signUp({
           email,
