@@ -19,6 +19,7 @@ interface BlogPost {
   category: string;
   image_url: string | null;
   published_at: string;
+  user_id: string;
 }
 
 const Admin = () => {
@@ -66,6 +67,7 @@ const Admin = () => {
       const { data, error } = await supabase
         .from("blog_posts")
         .select("*")
+        .eq("user_id", session?.user.id)
         .order("published_at", { ascending: false });
 
       if (error) throw error;
@@ -113,6 +115,7 @@ const Admin = () => {
           author: formData.author,
           category: formData.category,
           image_url: formData.image_url || null,
+          user_id: session?.user.id,
         });
 
         if (error) throw error;
