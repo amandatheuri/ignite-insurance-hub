@@ -326,6 +326,7 @@ const Index = () => {
                         <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
                         <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
                         <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
+                        <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
       </div>
     </div>
   </div>
