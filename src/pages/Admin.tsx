@@ -35,6 +35,8 @@ const Admin = () => {
     category: "",
     image_url: "",
   });
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -83,11 +85,37 @@ const Admin = () => {
     }
   };
 
+  const uploadImage = async (file: File): Promise<string> => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${session?.user.id}/${Date.now()}.${fileExt}`;
+
+    const { data, error } = await supabase.storage
+      .from('blog-images')
+      .upload(fileName, file);
+
+    if (error) throw error;
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('blog-images')
+      .getPublicUrl(fileName);
+
+    return publicUrl;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
+      let imageUrl = formData.image_url;
+
+      // Upload image if file is selected
+      if (imageFile) {
+        setUploadingImage(true);
+        imageUrl = await uploadImage(imageFile);
+        setUploadingImage(false);
+      }
+
       if (isEditing) {
         const { error } = await supabase
           .from("blog_posts")
@@ -97,7 +125,7 @@ const Admin = () => {
             content: formData.content,
             author: formData.author,
             category: formData.category,
-            image_url: formData.image_url || null,
+            image_url: imageUrl || null,
           })
           .eq("id", formData.id);
 
@@ -114,7 +142,7 @@ const Admin = () => {
           content: formData.content,
           author: formData.author,
           category: formData.category,
-          image_url: formData.image_url || null,
+          image_url: imageUrl || null,
           user_id: session?.user.id,
         });
 
@@ -184,6 +212,7 @@ const Admin = () => {
       category: "",
       image_url: "",
     });
+    setImageFile(null);
     setIsEditing(false);
   };
 
@@ -248,29 +277,47 @@ const Admin = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="category">Category</Label>
-                  <Input
-                    id="category"
-                    value={formData.category}
-                    onChange={(e) =>
-                      setFormData({ ...formData, category: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="image_url">Image URL</Label>
-                  <Input
-                    id="image_url"
-                    value={formData.image_url}
-                    onChange={(e) =>
-                      setFormData({ ...formData, image_url: e.target.value })
-                    }
-                    placeholder="https://..."
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="category">Category</Label>
+                <Input
+                  id="category"
+                  value={formData.category}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="image_file">Upload Image</Label>
+                <Input
+                  id="image_file"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+                  className="cursor-pointer"
+                />
+                {imageFile && (
+                  <p className="text-sm text-muted-foreground">
+                    Selected: {imageFile.name}
+                  </p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="image_url">Or Image URL</Label>
+                <Input
+                  id="image_url"
+                  value={formData.image_url}
+                  onChange={(e) =>
+                    setFormData({ ...formData, image_url: e.target.value })
+                  }
+                  placeholder="https://..."
+                />
+                <p className="text-xs text-muted-foreground">
+                  Leave empty if uploading a file above
+                </p>
               </div>
 
               <div className="space-y-2">
@@ -300,9 +347,9 @@ const Admin = () => {
               </div>
 
               <div className="flex gap-2">
-                <Button type="submit" disabled={loading}>
-                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {isEditing ? "Update Post" : "Create Post"}
+                <Button type="submit" disabled={loading || uploadingImage}>
+                  {(loading || uploadingImage) && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  {uploadingImage ? "Uploading..." : isEditing ? "Update Post" : "Create Post"}
                 </Button>
                 {isEditing && (
                   <Button type="button" variant="outline" onClick={resetForm}>
