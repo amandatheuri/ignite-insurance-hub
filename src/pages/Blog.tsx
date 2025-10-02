@@ -6,6 +6,7 @@ import { Calendar, Clock, User, Search, ArrowLeft, Loader2 } from "lucide-react"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -187,8 +188,8 @@ const Blog = () => {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <p className="mb-2">Phone: (555) 123-4567</p>
-              <p className="mb-2">Email: info@insurance.com</p>
+              <p className="mb-2">Phone: +254 728 813 594</p>
+              <p className="mb-2">Email: info@theoryinsurance.com</p>
               <p>Address: 123 Insurance St, City, State 12345</p>
             </div>
             <div>
@@ -197,6 +198,8 @@ const Blog = () => {
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">Facebook</a>
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">Twitter</a>
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">LinkedIn</a>
+              <Link to="/auth" className="hover:text-primary">___</Link>
+
               </div>
             </div>
           </div>
