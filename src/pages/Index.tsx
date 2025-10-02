@@ -10,6 +10,7 @@ import cicLogo from "@/assets/CIC-logo.jpeg";
 import firstAssurance from "@/assets/First-Assurance.jpg";
 import monarchLogo from "@/assets/monarch-logo.jpg";
 import pacisLogo from "@/assets/pacis-logo.png";
+import oldMutualLogo from "@/assets/old-mutual.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -318,6 +319,7 @@ const Index = () => {
             <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
             <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
             <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
+            <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
 
             {/* Duplicate for seamless scroll */}
                         <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
