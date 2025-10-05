@@ -1,6 +1,7 @@
 "use client"
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
@@ -24,6 +25,30 @@ import CountUp from "react-countup";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
+
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  const fetchBlogPosts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .order('published_at', { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      setBlogPosts(data || []);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+    } finally {
+      setLoadingBlogs(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -422,64 +447,51 @@ const Index = () => {
             <p className="text-xl text-muted-foreground">Stay informed with expert advice and industry updates</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-muted rounded-t-lg"></div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Insurance Tips</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Understanding Your Insurance Coverage in 2024</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">A comprehensive guide to navigating insurance policies and ensuring you have adequate protection for your needs.</p>
-                <div className="flex items-center text-sm text-muted-foreground mb-4">
-                  <span>By Sarah Johnson</span>
-                  <span className="mx-2">•</span>
-                  <span>5 min read</span>
-                </div>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/blog">Read More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-muted rounded-t-lg"></div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Cost Savings</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Top 5 Factors That Affect Your Insurance Premiums</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">Learn about the key factors insurance companies consider when calculating your premiums and how to potentially lower costs.</p>
-                <div className="flex items-center text-sm text-muted-foreground mb-4">
-                  <span>By Michael Chen</span>
-                  <span className="mx-2">•</span>
-                  <span>7 min read</span>
-                </div>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/blog">Read More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-muted rounded-t-lg"></div>
-              <CardContent className="p-6">
-                <div className="mb-3">
-                  <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">Business</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 line-clamp-2">Business Insurance: Protecting Your Company's Future</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">Essential business insurance types every entrepreneur should consider to safeguard their investment.</p>
-                <div className="flex items-center text-sm text-muted-foreground mb-4">
-                  <span>By Emily Rodriguez</span>
-                  <span className="mx-2">•</span>
-                  <span>6 min read</span>
-                </div>
-                <Button variant="outline" className="w-full" asChild>
-                  <Link to="/blog">Read More</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+          {loadingBlogs ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Loading articles...</p>
+            </div>
+          ) : blogPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No articles available yet. Check back soon!</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-3 gap-8">
+              {blogPosts.map((post) => (
+                <Card key={post.id} className="hover:shadow-lg transition-shadow">
+                  {post.image_url && (
+                    <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
+                      <img 
+                        src={post.image_url} 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                  {!post.image_url && (
+                    <div className="aspect-video bg-muted rounded-t-lg"></div>
+                  )}
+                  <CardContent className="p-6">
+                    <div className="mb-3">
+                      <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                        {post.category}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 line-clamp-2">{post.title}</h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center text-sm text-muted-foreground mb-4">
+                      <span>By {post.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{new Date(post.published_at).toLocaleDateString()}</span>
+                    </div>
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link to="/blog">Read More</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
