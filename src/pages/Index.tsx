@@ -2,6 +2,8 @@
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
 import { Link } from "react-router-dom";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
@@ -23,10 +25,17 @@ import CountUp from "react-countup";
 
 
 
+const newsletterSchema = z.object({
+  email: z.string().trim().email({ message: "Invalid email address" }).max(255, { message: "Email must be less than 255 characters" }),
+});
+
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
   const [loadingBlogs, setLoadingBlogs] = useState(true);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [submittingNewsletter, setSubmittingNewsletter] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     fetchBlogPosts();
@@ -46,6 +55,55 @@ const Index = () => {
       console.error('Error fetching blog posts:', error);
     } finally {
       setLoadingBlogs(false);
+    }
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Validate email
+      const validatedData = newsletterSchema.parse({ email: newsletterEmail });
+      
+      setSubmittingNewsletter(true);
+
+      const { error } = await supabase
+        .from('newsletter_subscribers')
+        .insert([{ email: validatedData.email }]);
+
+      if (error) {
+        if (error.code === '23505') { // Unique constraint violation
+          toast({
+            title: "Already subscribed",
+            description: "This email is already subscribed to our newsletter.",
+            variant: "destructive",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Success!",
+          description: "You've been subscribed to our newsletter.",
+        });
+        setNewsletterEmail("");
+      }
+    } catch (error: any) {
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Invalid email",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to subscribe. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setSubmittingNewsletter(false);
     }
   };
 
@@ -498,6 +556,43 @@ const Index = () => {
               <Link to="/blog">View All Articles</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            Join Our Newsletter
+          </h2>
+          <p className="text-lg text-primary-foreground/90 mb-8">
+            Stay updated with the latest insurance tips, industry news, and exclusive offers
+          </p>
+          
+          <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                className="flex-1 bg-white text-foreground"
+                required
+                disabled={submittingNewsletter}
+              />
+              <Button 
+                type="submit" 
+                variant="secondary"
+                size="lg"
+                disabled={submittingNewsletter}
+              >
+                {submittingNewsletter ? "Subscribing..." : "Subscribe"}
+              </Button>
+            </div>
+            <p className="text-sm text-primary-foreground/80 mt-4">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </form>
         </div>
       </section>
 
