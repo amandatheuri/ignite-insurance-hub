@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
+import employees from "@/assets/employees.jpg";
 
 const EmployeeInsurance = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -67,21 +68,28 @@ const EmployeeInsurance = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="py-12 bg-primary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link to="/" className="inline-flex items-center text-primary hover:text-primary/80 mb-4">
-              ← Back to Home
-            </Link>
-            <h1 className="text-4xl font-bold text-foreground mb-4">Employee Insurance</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Build a comprehensive employee benefits package that attracts top talent and shows your team you care. 
+      <section className="relative py-20 md:py-24 overflow-hidden">
+  <img
+    src={employees}
+    alt="Professional insurance consultation"
+    className="absolute inset-0 w-full h-full object-cover opacity-90"
+  />
+  <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+  
+  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <Link
+      to="/"
+      className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
+    >
+      ← Back to Home
+    </Link>
+    <h1 className="text-4xl font-bold text-foreground mb-4">Employee Insurance</h1>
+    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+  Build a comprehensive employee benefits package that attracts top talent and shows your team you care. 
               Our group insurance solutions provide essential coverage for your employees while offering significant 
-              cost savings and tax advantages for your business.
-            </p>
-          </div>
-        </div>
-      </section>
+              cost savings and tax advantages for your business.    </p>
+  </div>
+</section>
 
       {/* Search Bar */}
       <section className="py-8 bg-muted/20">

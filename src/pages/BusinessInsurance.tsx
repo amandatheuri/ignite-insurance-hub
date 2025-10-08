@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
+import business from "@/assets/business.jpg";
+
 
 const BusinessInsurance = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -90,22 +92,28 @@ const BusinessInsurance = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="py-12 bg-primary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link to="/" className="inline-flex items-center text-primary hover:text-primary/80 mb-4">
-              ← Back to Home
-            </Link>
-            <h1 className="text-4xl font-bold text-foreground mb-4">Business Insurance</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Safeguard your business operations with our comprehensive commercial insurance solutions. 
+ <section className="relative py-20 md:py-24 overflow-hidden">
+  <img
+    src={business}
+    alt="Professional insurance consultation"
+    className="absolute inset-0 w-full h-full object-cover opacity-90"
+  />
+  <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+  
+  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <Link
+      to="/"
+      className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
+    >
+      ← Back to Home
+    </Link>
+    <h1 className="text-4xl font-bold text-foreground mb-4">Business Insurance</h1>
+    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+   Safeguard your business operations with our comprehensive commercial insurance solutions. 
               From general liability to specialized coverage, we provide the protection your business needs 
-              to operate confidently and securely in today's dynamic marketplace.
-            </p>
-          </div>
-        </div>
-      </section>
-
+              to operate confidently and securely in today's dynamic marketplace.   </p>
+  </div>
+</section>
       {/* Search Bar */}
       <section className="py-8 bg-muted/20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">

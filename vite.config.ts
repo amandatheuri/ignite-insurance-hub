@@ -5,7 +5,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/ignite-insurance-hub/" : "/", // ✅ only set base in prod
+  base: "/", 
   server: {
     host: true,
     port: 8080,
@@ -17,3 +17,4 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
