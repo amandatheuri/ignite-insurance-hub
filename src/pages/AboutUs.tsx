@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Shield, Users, Target, Award, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import heroHandshake from "@/assets/hero-handshake.jpg";
+import heroFamily from "@/assets/hero-family.jpg";
+import heroOffice from "@/assets/hero-office.jpg";
 
 const AboutUs = () => {
   return (
@@ -25,7 +28,7 @@ const AboutUs = () => {
       <section id="our-story" className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in">
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-muted-foreground mb-4">
                 Theory Insurance was founded with a simple yet powerful mission: to make quality insurance 
@@ -43,9 +46,31 @@ const AboutUs = () => {
                 solutions that combine competitive pricing with exceptional service.
               </p>
             </div>
-            <div className="bg-primary/5 p-8 rounded-lg">
+            <div className="animate-scale-in">
+              <img 
+                src={heroHandshake} 
+                alt="Professional handshake representing trust and partnership" 
+                className="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 animate-scale-in">
+              <img 
+                src={heroFamily} 
+                alt="Happy family representing protection and security" 
+                className="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300"
+              />
+            </div>
+            <div className="order-1 lg:order-2 animate-fade-in">
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 hover-scale">
                   <div className="bg-primary rounded-full p-3">
                     <Shield className="h-6 w-6 text-primary-foreground" />
                   </div>
@@ -56,7 +81,7 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 hover-scale">
                   <div className="bg-primary rounded-full p-3">
                     <Users className="h-6 w-6 text-primary-foreground" />
                   </div>
@@ -67,7 +92,7 @@ const AboutUs = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 hover-scale">
                   <div className="bg-primary rounded-full p-3">
                     <Award className="h-6 w-6 text-primary-foreground" />
                   </div>
@@ -85,10 +110,10 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-all hover:-translate-y-1 animate-fade-in">
               <CardContent className="p-8">
                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   <Target className="h-8 w-8 text-primary" />
@@ -101,7 +126,7 @@ const AboutUs = () => {
                 </p>
               </CardContent>
             </Card>
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-all hover:-translate-y-1 animate-fade-in">
               <CardContent className="p-8">
                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   <Award className="h-8 w-8 text-primary" />
@@ -118,16 +143,29 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Team Image Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="animate-scale-in">
+            <img 
+              src={heroOffice} 
+              alt="Professional office environment showing our commitment to excellence" 
+              className="rounded-lg shadow-xl w-full h-[400px] object-cover hover:shadow-2xl transition-shadow duration-300"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Our Values */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
             <p className="text-xl text-muted-foreground">The principles that guide everything we do</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center animate-fade-in hover-scale">
+              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-transform hover:rotate-12">
                 <CheckCircle className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Integrity</h3>
@@ -135,8 +173,8 @@ const AboutUs = () => {
                 We operate with honesty and transparency, building trust through every interaction
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center animate-fade-in hover-scale">
+              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-transform hover:rotate-12">
                 <Users className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Client First</h3>
@@ -144,8 +182,8 @@ const AboutUs = () => {
                 Your needs and satisfaction are at the heart of everything we do
               </p>
             </div>
-            <div className="text-center">
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center animate-fade-in hover-scale">
+              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 transition-transform hover:rotate-12">
                 <Shield className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Excellence</h3>

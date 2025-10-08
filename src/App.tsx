@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import AboutUs from "./pages/AboutUs";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <WhatsAppButton />
       <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
