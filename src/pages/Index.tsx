@@ -149,7 +149,7 @@ const Index = () => {
 
             {/* Center - Desktop Nav */}
          <nav className="hidden md:flex gap-8 text-foreground font-medium">
-              <a href="#our-story" className="hover:text-primary">Our Story</a>
+              <Link to="/about-us" className="hover:text-primary">About Us</Link>
               <a href="#risk" className="hover:text-primary">Risk Consulting</a>
               <Link to="/employee-insurance" className="hover:text-primary">Employee Benefits</Link>
               <Link to="/personal-insurance" className="hover:text-primary">Personal</Link>
@@ -180,7 +180,7 @@ const Index = () => {
         {/* 🔹 Mobile Menu Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
-            <a href="#our-story" className="block hover:text-primary">Our Story</a>
+            <Link to="/about-us" className="block hover:text-primary">About Us</Link>
             <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
             <Link to="/employee-insurance" className="block hover:text-primary">Employee Benefits</Link>
             <Link to="/personal-insurance" className="block hover:text-primary">Personal</Link>
@@ -709,8 +709,9 @@ function HeroCarousel() {
                   size="lg"
                   variant="outline"
                   className="text-lg px-8 py-6 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                  asChild
                 >
-                  Get A Quote
+                  <a href="mailto:info@theoryinsurance.co.ke">Get A Quote</a>
                 </Button>
               </div>
             </div>

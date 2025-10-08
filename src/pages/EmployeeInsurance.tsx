@@ -127,8 +127,8 @@ const EmployeeInsurance = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button className="w-full mt-6" variant="outline">
-                    Get Group Quote
+                  <Button className="w-full mt-6" variant="outline" asChild>
+                    <a href="mailto:info@theoryinsurance.co.ke">Get Group Quote</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -165,11 +165,11 @@ const EmployeeInsurance = () => {
             that fits your budget and meets your employees' needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8">
-              Schedule Benefits Consultation
+            <Button size="lg" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Schedule Benefits Consultation</a>
             </Button>
-            <Button size="lg" variant="outline" className="px-8">
-              Get Group Rates
+            <Button size="lg" variant="outline" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Get Group Rates</a>
             </Button>
           </div>
         </div>

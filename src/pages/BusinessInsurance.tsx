@@ -150,8 +150,8 @@ const BusinessInsurance = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button className="w-full mt-4" variant="outline">
-                    Get Quote
+                  <Button className="w-full mt-4" variant="outline" asChild>
+                    <a href="mailto:info@theoryinsurance.co.ke">Get Quote</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -170,11 +170,11 @@ const BusinessInsurance = () => {
             that fits your industry, size, and specific risk profile.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8">
-              Consult Business Expert
+            <Button size="lg" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Consult Business Expert</a>
             </Button>
-            <Button size="lg" variant="outline" className="px-8">
-              Request Business Quote
+            <Button size="lg" variant="outline" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Request Business Quote</a>
             </Button>
           </div>
         </div>

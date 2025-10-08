@@ -156,8 +156,8 @@ const PersonalInsurance = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button className="w-full mt-4" variant="outline">
-                    Get Quote
+                  <Button className="w-full mt-4" variant="outline" asChild>
+                    <a href="mailto:info@theoryinsurance.co.ke">Get Quote</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -175,11 +175,11 @@ const PersonalInsurance = () => {
             Our insurance experts are here to help you find the perfect personal insurance solution for your needs and budget.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8">
-              Speak with an Agent
+            <Button size="lg" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Speak with an Agent</a>
             </Button>
-            <Button size="lg" variant="outline" className="px-8">
-              Get Free Quote
+            <Button size="lg" variant="outline" className="px-8" asChild>
+              <a href="mailto:info@theoryinsurance.co.ke">Get Free Quote</a>
             </Button>
           </div>
         </div>
