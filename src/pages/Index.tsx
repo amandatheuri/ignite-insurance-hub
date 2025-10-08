@@ -181,7 +181,6 @@ const Index = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
             <Link to="/about-us" className="block hover:text-primary">About Us</Link>
-            <a href="#risk" className="block hover:text-primary">Risk Consulting</a>
             <Link to="/employee-insurance" className="block hover:text-primary">Employee Benefits</Link>
             <Link to="/personal-insurance" className="block hover:text-primary">Personal</Link>
             <Link to="/business-insurance" className="block hover:text-primary">Business</Link>
@@ -432,7 +431,7 @@ const Index = () => {
                 <p className="text-muted-foreground mb-4">
                   "Theory Insurance made finding the right coverage so easy. Their team was incredibly helpful and found me great rates!"
                 </p>
-                <p className="font-semibold">- Sarah Johnson</p>
+                <p className="font-semibold">- Sarah Kiarie</p>
               </CardContent>
             </Card>
 
@@ -446,7 +445,7 @@ const Index = () => {
                 <p className="text-muted-foreground mb-4">
                   "Outstanding service! When I had a claim, they handled everything quickly and professionally. Highly recommend!"
                 </p>
-                <p className="font-semibold">- Michael Chen</p>
+                <p className="font-semibold">- Michael Mugambi</p>
               </CardContent>
             </Card>
 
@@ -460,7 +459,7 @@ const Index = () => {
                 <p className="text-muted-foreground mb-4">
                   "Been with Theory Insurance for 5 years. Their personalized service and competitive rates keep me coming back."
                 </p>
-                <p className="font-semibold">- Emma Rodriguez</p>
+                <p className="font-semibold">- Emma Atieno</p>
               </CardContent>
             </Card>
           </div>
@@ -485,13 +484,13 @@ const Index = () => {
             <div className="space-y-4">
               <Mail className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Email Us</h3>
-              <p className="text-muted-foreground">info@theoryinsurance.com</p>
+              <p className="text-muted-foreground">info@theoryinsurance.co.ke</p>
             </div>
 
             <div className="space-y-4">
               <MapPin className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Visit Us</h3>
-              <p className="text-muted-foreground">123 Langata Rd<br />City, State 12345</p>
+              <p className="text-muted-foreground">T Mall<br />Nairobi, Langata</p>
             </div>
           </div>
         </div>
@@ -606,12 +605,12 @@ const Index = () => {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <ul className="space-y-2 opacity-90">
-                <li>Auto Insurance</li>
-                <li>Home Insurance</li>
-                <li>Life Insurance</li>
-                <li>Business Insurance</li>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><a href="/" className="hover:text-primary-foreground/80 transition-colors">Home</a></li>
+                <li><a href="/personal-insurance" className="hover:text-primary-foreground/80 transition-colors">Personal Insurance</a></li>
+                <li><a href="/business-insurance" className="hover:text-primary-foreground/80 transition-colors">Business Insurance</a></li>
+                <li><a href="/employee-insurance" className="hover:text-primary-foreground/80 transition-colors">Employee Insurance</a></li>
               </ul>
             </div>
 

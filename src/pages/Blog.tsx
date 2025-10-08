@@ -189,8 +189,8 @@ const Blog = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
               <p className="mb-2">Phone: +254 728 813 594</p>
-              <p className="mb-2">Email: info@theoryinsurance.com</p>
-              <p>Address: 123 Insurance St, City, State 12345</p>
+              <p className="mb-2">Email: info@theoryinsurance.co.ke</p>
+              <p>Address: T Mall Langata, Nairobi</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
@@ -204,7 +204,7 @@ const Blog = () => {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-            <p>&copy; 2024 Insurance Company. All rights reserved.</p>
+            <p>&copy; 2025 Theory Insurance Agency. All rights reserved.</p>
           </div>
         </div>
       </footer>

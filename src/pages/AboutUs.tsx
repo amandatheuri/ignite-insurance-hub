@@ -211,7 +211,7 @@ looking insurance solutions.
               <a href="mailto:info@theoryinsurance.co.ke">Get a Quote</a>
             </Button>
             <Button size="lg" variant="outline" className="px-8" asChild>
-              <a href="/#contact">Contact Us</a>
+             <a href="tel:0728813594">Contact Us</a>
             </Button>
           </div>
         </div>
