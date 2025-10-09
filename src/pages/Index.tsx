@@ -35,6 +35,13 @@ const Index = () => {
   const [loadingBlogs, setLoadingBlogs] = useState(true);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [submittingNewsletter, setSubmittingNewsletter] = useState(false);
+  const [quoteForm, setQuoteForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    insuranceType: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -104,6 +111,40 @@ const Index = () => {
       }
     } finally {
       setSubmittingNewsletter(false);
+    }
+  };
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-quote-email', {
+        body: quoteForm
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Quote request sent!",
+        description: "We'll get back to you shortly with your quote.",
+      });
+
+      setQuoteForm({
+        fullName: "",
+        email: "",
+        phone: "",
+        insuranceType: ""
+      });
+    } catch (error: any) {
+      console.error('Error sending quote request:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send quote request. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -372,13 +413,37 @@ const Index = () => {
 
       <div className="bg-muted/30 p-8 rounded-lg">
         <h3 className="text-2xl font-bold mb-6 text-center">Get Your Free Quote</h3>
-        <div className="space-y-4">
-          <Input placeholder="Full Name" />
-          <Input placeholder="Email Address" type="email" />
-          <Input placeholder="Phone Number" type="tel" />
-          <Input placeholder="Type of Insurance" />
-          <Button className="w-full" size="lg">Get My Quote</Button>
-        </div>
+        <form onSubmit={handleQuoteSubmit} className="space-y-4">
+          <Input 
+            placeholder="Full Name" 
+            value={quoteForm.fullName}
+            onChange={(e) => setQuoteForm({...quoteForm, fullName: e.target.value})}
+            required
+          />
+          <Input 
+            placeholder="Email Address" 
+            type="email"
+            value={quoteForm.email}
+            onChange={(e) => setQuoteForm({...quoteForm, email: e.target.value})}
+            required
+          />
+          <Input 
+            placeholder="Phone Number" 
+            type="tel"
+            value={quoteForm.phone}
+            onChange={(e) => setQuoteForm({...quoteForm, phone: e.target.value})}
+            required
+          />
+          <Input 
+            placeholder="Type of Insurance"
+            value={quoteForm.insuranceType}
+            onChange={(e) => setQuoteForm({...quoteForm, insuranceType: e.target.value})}
+            required
+          />
+          <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Get My Quote"}
+          </Button>
+        </form>
         <p className="text-sm text-muted-foreground mt-4 text-center">
           No obligation. Free consultation with our experts.
         </p>
