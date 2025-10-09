@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,9 +48,39 @@ const Blog = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-16">
+    <>
+      <Helmet>
+        <title>Insurance Insights & Tips | Theory Insurance Agency Blog</title>
+        <meta name="description" content="Stay informed with the latest insurance news, tips, and insights from our experts. Read articles about personal, business, and employee insurance coverage." />
+        <meta name="keywords" content="insurance blog, insurance tips, insurance insights, personal insurance, business insurance, employee insurance, insurance news Kenya" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Insurance Insights & Tips | Theory Insurance Agency Blog" />
+        <meta property="og:description" content="Stay informed with the latest insurance news, tips, and insights from our experts" />
+        <meta property="og:type" content="website" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Theory Insurance Agency Blog",
+            "description": "Insurance insights, tips, and industry updates",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Theory Insurance Agency",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "/logo.png"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
+        {/* Header */}
+        <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-6">
             <Button
@@ -143,7 +174,11 @@ const Blog = () => {
                       <span>{new Date(post.published_at).toLocaleDateString()}</span>
                     </div>
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button 
+                    variant="outline" 
+                    className="w-full"
+                    onClick={() => navigate(`/blog/${post.id}`)}
+                  >
                     Read More
                   </Button>
                 </CardContent>
@@ -208,7 +243,8 @@ const Blog = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 };
 
