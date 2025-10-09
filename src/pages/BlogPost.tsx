@@ -115,12 +115,12 @@ const BlogPost = () => {
 
       <article className="min-h-screen bg-background">
         {/* Header with back button */}
-        <header className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-8">
+        <header className="py-6 border-b">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <Button
               variant="ghost"
               onClick={() => navigate("/blog")}
-              className="text-primary-foreground hover:bg-white/10 hover:text-primary-foreground mb-4"
+              className="hover:bg-muted"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Blog
