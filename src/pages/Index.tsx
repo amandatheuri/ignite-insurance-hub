@@ -119,11 +119,18 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke('send-quote-email', {
+      console.log('Submitting quote request:', quoteForm);
+      
+      const { data, error } = await supabase.functions.invoke('send-quote-email', {
         body: quoteForm
       });
 
-      if (error) throw error;
+      console.log('Response from edge function:', { data, error });
+
+      if (error) {
+        console.error('Edge function error:', error);
+        throw error;
+      }
 
       toast({
         title: "Quote request sent!",
@@ -140,7 +147,7 @@ const Index = () => {
       console.error('Error sending quote request:', error);
       toast({
         title: "Error",
-        description: "Failed to send quote request. Please try again or contact us directly.",
+        description: error.message || "Failed to send quote request. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -680,11 +687,10 @@ const Index = () => {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 opacity-90">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Contact</li>
-                <li>Blog</li>
+              <ul className="space-y-2">
+                <li><Link to="/about-us" className="hover:text-primary-foreground/80 transition-colors">About Us</Link></li>
+                <li><a href="mailto:info@theoryinsurance.co.ke" className="hover:text-primary-foreground/80 transition-colors">Contact</a></li>
+                <li><Link to="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
               </ul>
             </div>
 
