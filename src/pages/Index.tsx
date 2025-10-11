@@ -164,7 +164,7 @@ const Index = () => {
             {/* Center - Email */}
             <div className="hidden md:flex items-center gap-2">
               <Mail size={16} />
-              <span>support@theoryinsurance.com</span>
+              <span>info@theoryinsurance.co.ke</span>
             </div>
 
             {/* Right - Links + Social */}
@@ -191,7 +191,6 @@ const Index = () => {
             {/* Center - Desktop Nav */}
          <nav className="hidden md:flex gap-8 text-foreground font-medium">
               <Link to="/about-us" className="hover:text-primary">About Us</Link>
-              <a href="#risk" className="hover:text-primary">Risk Consulting</a>
               <Link to="/employee-insurance" className="hover:text-primary">Employee Benefits</Link>
               <Link to="/personal-insurance" className="hover:text-primary">Personal</Link>
               <Link to="/business-insurance" className="hover:text-primary">Business</Link>
@@ -463,17 +462,17 @@ const Index = () => {
       <div className="flex animate-scroll space-x-16">
         {/* Logos */}
             <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
+            <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
             <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
             <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
             <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
-            <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
 
             {/* Duplicate for seamless scroll */}
-                        <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
                         <img src={pacisLogo} alt="Pacis Insurance" className="h-16 w-auto" />
+                        <img src={firstAssurance} alt="First Assurance" className="h-16 w-auto" />
+                        <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
                         <img src={monarchLogo} alt="Monarch Insurance" className="h-16 w-auto" />
                         <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
-                        <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
       </div>
     </div>
   </div>
@@ -503,7 +502,7 @@ const Index = () => {
             <Card className="p-6">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
+                  {[...Array(4)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
                   ))}
                 </div>
