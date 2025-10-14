@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, User, Search, ArrowLeft, Loader2 } from "lucide-react";
+import { Calendar, Clock, User, Search, ArrowLeft, Loader2, Share2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -47,6 +47,24 @@ const Blog = () => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+  const handleShare = async (post: any) => {
+  const shareUrl = `${window.location.origin}/blog/${post.id}`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: post.title,
+        text: post.excerpt,
+        url: shareUrl,
+      });
+    } catch (err) {
+      console.log("Share cancelled:", err);
+    }
+  } else {
+    await navigator.clipboard.writeText(shareUrl);
+    alert("Link copied to clipboard!");
+  }
+};
 
   return (
     <>
@@ -81,32 +99,21 @@ const Blog = () => {
 
       <div className="min-h-screen bg-background">
         {/* Header */}
-        <header className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <img 
-              src={heroOffice} 
-              alt="Insurance office" 
-              className="w-full h-full object-cover"
-            />
-<div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-secondary/70" />
-          </div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <Link
-      to="/"
-      className="inline-flex items-center text-white/80 hover:text-secondary/80 mb-6 transition-colors"
-    >
-      ← Back to Home
-    </Link>
-            </div>
-            <div className="text-center animate-fade-in">
-             <h1 className="text-4xl font-bold text-foreground mb-4">Blog Articles</h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-                Stay informed with the latest insurance news, tips, and insights from our experts
-              </p>
-            </div>
-          </div>
-        </header>
+        
+        <header className="py-6 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <div className="flex items-center gap-4">
+      <Button
+        variant="ghost"
+        onClick={() => navigate("/")}
+        className="hover:bg-muted"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Back to Home
+      </Button>
+    </div>
+  </div>
+</header>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Search and Filters */}
         <div className="mb-8 space-y-4">
@@ -180,13 +187,25 @@ const Blog = () => {
                       <span>{new Date(post.published_at).toLocaleDateString()}</span>
                     </div>
                   </div>
-                  <Button 
-                    variant="outline" 
-                    className="w-full"
-                    onClick={() => navigate(`/blog/${post.id}`)}
-                  >
-                    Read More
-                  </Button>
+                  <div className="flex items-center gap-2">
+  <Button
+    variant="outline"
+    className="flex-1"
+    onClick={() => navigate(`/blog/${post.id}`)}
+  >
+    Read More
+  </Button>
+
+  <Button
+    variant="ghost"
+    size="icon"
+    onClick={() => handleShare(post)}
+    title="Share this article"
+  >
+    <Share2 className="h-4 w-4" />
+  </Button>
+</div>
+
                 </CardContent>
               </Card>
             ))}

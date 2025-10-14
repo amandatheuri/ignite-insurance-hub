@@ -11,10 +11,6 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [comments, setComments] = useState<any[]>([]);
-  const [commentName, setCommentName] = useState("");
-  const [commentText, setCommentText] = useState("");
-  const [submitting, setSubmitting] = useState(false);
 
 
   useEffect(() => {
@@ -38,7 +34,6 @@ const BlogPost = () => {
     if (id) {
       fetchPost();
     }
-    
   }, [id]);
 
   if (loading) {

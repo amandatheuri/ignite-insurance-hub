@@ -13,7 +13,9 @@ import BlogPost from "./pages/BlogPost";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import AboutUs from "./pages/AboutUs";
+import FAQ from "./pages/faq";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/scrolltotop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
       <Sonner />
       <WhatsAppButton />
       <HashRouter>
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/personal-insurance" element={<PersonalInsurance />} />
@@ -32,8 +36,9 @@ const App = () => (
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/loggedin" element={<Auth />} />
           <Route path="/writeblog" element={<Admin />} />
+          <Route path="/faqs" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

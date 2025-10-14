@@ -16,7 +16,7 @@ const AboutUs = () => {
     alt="Professional insurance consultation"
     className="absolute inset-0 w-full h-full object-cover opacity-90"
   />
-<div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-secondary/60" />
+<div className="absolute inset-0 bg-black/55" />
   
   <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <Link
@@ -25,7 +25,7 @@ const AboutUs = () => {
     >
       ← Back to Home
     </Link>
-    <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
       About Theory Insurance
     </h1>
     <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">

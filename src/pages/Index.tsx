@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import { Link } from "react-router-dom";
 import heroFamily from "@/assets/hero-family.jpg";
 import heroHandshake from "@/assets/hero-handshake.jpg";
 import heroOffice from "@/assets/hero-office.jpg";
@@ -16,11 +15,11 @@ import pacisLogo from "@/assets/pacis-logo.png";
 import oldMutualLogo from "@/assets/old-mutual.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
-import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, Users, X } from "lucide-react";
+import { Building2, Car, CheckCircle, Heart, Home, Mail, MapPin, Menu, Phone, Search, Shield, Star, Users, X, Share2 } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import CountUp from "react-countup";
+import { useNavigate, Link } from "react-router-dom";
+
 
 
 
@@ -33,8 +32,10 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
   const [loadingBlogs, setLoadingBlogs] = useState(true);
+  const navigate = useNavigate();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [submittingNewsletter, setSubmittingNewsletter] = useState(false);
+  
   const [quoteForm, setQuoteForm] = useState({
     fullName: "",
     email: "",
@@ -154,7 +155,24 @@ const Index = () => {
       setIsSubmitting(false);
     }
   };
+const handleShare = async (post: any) => {
+  const shareUrl = `${window.location.origin}/blog/${post.id}`;
 
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: post.title,
+        text: post.excerpt,
+        url: shareUrl,
+      });
+    } catch (err) {
+      console.log("Share cancelled:", err);
+    }
+  } else {
+    await navigator.clipboard.writeText(shareUrl);
+    alert("Link copied to clipboard!");
+  }
+};
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -176,7 +194,7 @@ const Index = () => {
 
             {/* Right - Links + Social */}
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:underline">FAQs</a>
+              <Link to="/faqs" className="hover:underline">FAQs</Link>
               <a href="#contact" className="hover:underline">Contact</a>
               <div className="flex gap-3">
                 <FaFacebookF className="cursor-pointer hover:text-secondary-foreground" />
@@ -549,7 +567,7 @@ const Index = () => {
             <div className="space-y-4">
               <Phone className="h-12 w-12 text-primary mx-auto" />
               <h3 className="text-xl font-semibold">Call Us</h3>
-              <p className="text-muted-foreground">+254 722345622</p>
+              <p className="text-muted-foreground">+254 728 813 594</p>
             </div>
 
             <div className="space-y-4">
@@ -612,9 +630,25 @@ const Index = () => {
                       <span className="mx-2">•</span>
                       <span>{new Date(post.published_at).toLocaleDateString()}</span>
                     </div>
-                    <Button variant="outline" className="w-full" asChild>
-                      <Link to="/blog">Read More</Link>
-                    </Button>
+                   <div className="flex items-center gap-2">
+  <Button
+    variant="outline"
+    className="flex-1"
+     onClick={() => navigate(`/blog/${post.id}`)}
+  >
+    Read More
+  </Button>
+
+  <Button
+    variant="ghost"
+    size="icon"
+    onClick={() => handleShare(post)}
+    title="Share this article"
+  >
+    <Share2 className="h-4 w-4" />
+  </Button>
+</div>
+
                   </CardContent>
                 </Card>
               ))}
@@ -691,6 +725,7 @@ const Index = () => {
                 <li><Link to="/about-us" className="hover:text-primary-foreground/80 transition-colors">About Us</Link></li>
                 <li><a href="mailto:info@theoryinsurance.co.ke" className="hover:text-primary-foreground/80 transition-colors">Contact</a></li>
                 <li><Link to="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
+                <li><Link to="/faqs" className="hover:underline">FAQs</Link></li>
               </ul>
             </div>
 
@@ -756,7 +791,7 @@ function HeroCarousel() {
           }`}
           style={{ backgroundImage: `url(${slide.image})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-hero/90 to-secondary/80"></div>
+        <div className="absolute inset-0 bg-black/55"></div>          
           <div className="relative h-full flex items-center justify-center text-primary-foreground">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
