@@ -97,27 +97,28 @@ const PersonalInsurance = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+
+  {/* Header */}
   <section className="relative py-20 md:py-24 overflow-hidden">
   <img
     src={personal}
     alt="Professional insurance consultation"
     className="absolute inset-0 w-full h-full object-cover opacity-90"
   />
-  <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+<div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-secondary/70" />
   
-  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
     <Link
       to="/"
-      className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
+      className="inline-flex items-center text-white/80 hover:text-secondary/80 mb-6 transition-colors"
     >
       ← Back to Home
     </Link>
     <h1 className="text-4xl font-bold text-foreground mb-4">Personal Insurance</h1>
-    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-   Protect what matters most to you with our comprehensive personal insurance solutions. 
-              From your home and car to your health and valuable possessions, we offer tailored coverage 
-              to safeguard your lifestyle and provide peace of mind for you and your loved ones.    </p>
+    <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+    From your home and car to your health and valuable possessions, we offer tailored coverage 
+   for you and your loved ones.    
+   </p>
   </div>
 </section>
 

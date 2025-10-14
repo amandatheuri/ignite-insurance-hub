@@ -466,7 +466,7 @@ const Index = () => {
 
     {/* Logo Marquee */}
     <div className="relative w-full overflow-hidden">
-      <div className="flex animate-scroll space-x-16">
+      <div className="flex animate-scroll space-x-10">
         {/* Logos */}
             <img src={cicLogo} alt="CIC Insurance" className="h-16 w-auto" />
             <img src={oldMutualLogo} alt="UAP old mutual" className="h-16 w-auto" />
@@ -679,9 +679,9 @@ const Index = () => {
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li><a href="/" className="hover:text-primary-foreground/80 transition-colors">Home</a></li>
-                <li><a href="/personal-insurance" className="hover:text-primary-foreground/80 transition-colors">Personal Insurance</a></li>
-                <li><a href="/business-insurance" className="hover:text-primary-foreground/80 transition-colors">Business Insurance</a></li>
-                <li><a href="/employee-insurance" className="hover:text-primary-foreground/80 transition-colors">Employee Insurance</a></li>
+                <li><Link to="/employee-insurance" className="block hover:text-primary">Employee Benefits</Link></li>
+                <li><Link to="/personal-insurance" className="hover:text-primary">Personal</Link></li>
+                <li><Link to="/business-insurance" className="block hover:text-primary">Business</Link></li>
               </ul>
             </div>
 

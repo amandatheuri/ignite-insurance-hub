@@ -16,19 +16,19 @@ const AboutUs = () => {
     alt="Professional insurance consultation"
     className="absolute inset-0 w-full h-full object-cover opacity-90"
   />
-  <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+<div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-secondary/60" />
   
   <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <Link
       to="/"
-      className="inline-flex items-center text-primary hover:text-primary/80 mb-6 transition-colors"
+      className="inline-flex items-center text-white/70 hover:text-secondary/80 mb-6 transition-colors"
     >
       ← Back to Home
     </Link>
     <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
-      About <span className="text-primary">Theory Insurance</span>
+      About Theory Insurance
     </h1>
-    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+    <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
       Since 1997, we’ve been protecting what matters most — your family, your business, and your peace of mind.
     </p>
   </div>

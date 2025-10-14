@@ -11,6 +11,11 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState<any[]>([]);
+  const [commentName, setCommentName] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -33,6 +38,7 @@ const BlogPost = () => {
     if (id) {
       fetchPost();
     }
+    
   }, [id]);
 
   if (loading) {
@@ -115,18 +121,21 @@ const BlogPost = () => {
 
       <article className="min-h-screen bg-background">
         {/* Header with back button */}
-        <header className="py-6 border-b">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Button
-              variant="ghost"
-              onClick={() => navigate("/blog")}
-              className="hover:bg-muted"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Button>
-          </div>
-        </header>
+      <header className="py-6 border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <div className="flex items-center gap-4">
+      <Button
+        variant="ghost"
+        onClick={() => navigate("/blog")}
+        className="hover:bg-muted"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Back to Blog
+      </Button>
+    </div>
+  </div>
+</header>
+
 
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Category Badge */}
@@ -173,11 +182,32 @@ const BlogPost = () => {
           </div>
 
           {/* Back to blog button */}
-          <div className="mt-12 pt-8 border-t">
+          <div className="flex items-center gap-4">
             <Button onClick={() => navigate("/blog")} size="lg">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to All Articles
             </Button>
+             <Button
+        variant="outline"
+        onClick={() => {
+          const shareData = {
+            title: post.title,
+            text: post.excerpt,
+            url: window.location.href,
+          };
+
+          if (navigator.share) {
+            navigator.share(shareData).catch((err) =>
+              console.error("Share failed:", err)
+            );
+          } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied to clipboard!");
+          }
+        }}
+      >
+        Share
+      </Button>
           </div>
         </main>
       </article>

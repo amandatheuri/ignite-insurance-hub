@@ -88,28 +88,25 @@ const Blog = () => {
               alt="Insurance office" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/60" />
+<div className="absolute inset-0 bg-gradient-to-r from-primary/70 to-secondary/70" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center mb-6">
-              <Button
-                variant="ghost"
-                onClick={() => navigate(-1)}
-                className="text-white hover:bg-white/10 hover:text-white"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back
-              </Button>
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <Link
+      to="/"
+      className="inline-flex items-center text-white/80 hover:text-secondary/80 mb-6 transition-colors"
+    >
+      ← Back to Home
+    </Link>
             </div>
             <div className="text-center animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Insurance Insights</h1>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+             <h1 className="text-4xl font-bold text-foreground mb-4">Blog Articles</h1>
+              <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
                 Stay informed with the latest insurance news, tips, and insights from our experts
               </p>
             </div>
           </div>
         </header>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Search and Filters */}
         <div className="mb-8 space-y-4">
@@ -217,15 +214,15 @@ const Blog = () => {
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li><a href="/" className="hover:text-primary-foreground/80 transition-colors">Home</a></li>
-                <li><a href="/personal-insurance" className="hover:text-primary-foreground/80 transition-colors">Personal Insurance</a></li>
-                <li><a href="/business-insurance" className="hover:text-primary-foreground/80 transition-colors">Business Insurance</a></li>
-                <li><a href="/employee-insurance" className="hover:text-primary-foreground/80 transition-colors">Employee Insurance</a></li>
+                <li><Link to="/employee-insurance" className="block hover:text-primary">Employee Benefits</Link></li>
+                <li><Link to="/personal-insurance" className="hover:text-primary">Personal</Link></li>
+                <li><Link to="/business-insurance" className="block hover:text-primary">Business</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
-                <li><a href="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</a></li>
+                <li><Link to="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
                 <li><a href="#" className="hover:text-primary-foreground/80 transition-colors">FAQs</a></li>
                 <li><a href="#" className="hover:text-primary-foreground/80 transition-colors">Contact</a></li>
               </ul>
@@ -242,7 +239,6 @@ const Blog = () => {
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">Facebook</a>
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">Twitter</a>
                 <a href="#" className="hover:text-primary-foreground/80 transition-colors">LinkedIn</a>
-              <Link to="/auth" className="hover:text-primary">___</Link>
 
               </div>
             </div>
