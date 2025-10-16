@@ -16,35 +16,40 @@ import AboutUs from "./pages/AboutUs";
 import FAQ from "./pages/faq";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/scrolltotop";
+import usePageTracking from "./hooks/usePageTracking";
+
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <WhatsAppButton />
-      <HashRouter>
-        <ScrollToTop />
+const App = () => {
+  usePageTracking();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <WhatsAppButton />
+        <HashRouter>
+          <ScrollToTop />
 
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/personal-insurance" element={<PersonalInsurance />} />
-          <Route path="/business-insurance" element={<BusinessInsurance />} />
-          <Route path="/employee-insurance" element={<EmployeeInsurance />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/loggedin" element={<Auth />} />
-          <Route path="/writeblog" element={<Admin />} />
-          <Route path="/faqs" element={<FAQ />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </HashRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/personal-insurance" element={<PersonalInsurance />} />
+            <Route path="/business-insurance" element={<BusinessInsurance />} />
+            <Route path="/employee-insurance" element={<EmployeeInsurance />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/loggedin" element={<Auth />} />
+            <Route path="/writeblog" element={<Admin />} />
+            <Route path="/faqs" element={<FAQ />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HashRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
