@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PersonalInsurance from "./pages/PersonalInsurance";
@@ -17,39 +17,48 @@ import FAQ from "./pages/faq";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/scrolltotop";
 import usePageTracking from "./hooks/usePageTracking";
+import { HelmetProvider } from "react-helmet-async";
 
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  usePageTracking();
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <WhatsAppButton />
-        <HashRouter>
-          <ScrollToTop />
+        <HelmetProvider>
+          <Toaster />
+          <Sonner />
+          <WhatsAppButton />
 
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/personal-insurance" element={<PersonalInsurance />} />
-            <Route path="/business-insurance" element={<BusinessInsurance />} />
-            <Route path="/employee-insurance" element={<EmployeeInsurance />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            <Route path="/loggedin" element={<Auth />} />
-            <Route path="/writeblog" element={<Admin />} />
-            <Route path="/faqs" element={<FAQ />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </HashRouter>
+          <BrowserRouter>
+            <ScrollToTop />
+            <PageTracking />
+
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/personal-insurance" element={<PersonalInsurance />} />
+              <Route path="/business-insurance" element={<BusinessInsurance />} />
+              <Route path="/employee-insurance" element={<EmployeeInsurance />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/loggedin" element={<Auth />} />
+              <Route path="/writeblog" element={<Admin />} />
+              <Route path="/faqs" element={<FAQ />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </HelmetProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
 };
+
+
+function PageTracking() {
+  usePageTracking();
+  return null;
+}
 
 export default App;

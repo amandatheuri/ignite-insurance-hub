@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import employees from "@/assets/employees.jpg";
+import { Helmet } from "react-helmet-async";
+
 
 const EmployeeInsurance = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -67,6 +69,14 @@ const EmployeeInsurance = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Employee Insurance | Theory Insurance</title>
+        <meta
+          name="description"
+          content="Comprehensive employee insurance packages in Kenya — including medical, work injury, group life, and accident coverage to protect your team."
+        />
+        <link rel="canonical" href="https://theoryinsurance.co.ke/employee-insurance" />
+      </Helmet>
       {/* Header */}
       <section className="relative py-20 md:py-24 overflow-hidden">
   <img
