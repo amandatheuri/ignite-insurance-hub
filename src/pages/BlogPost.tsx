@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowLeft, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet";
+import { BlogComments } from "@/components/BlogComments";
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -177,7 +178,7 @@ const BlogPost = () => {
           </div>
 
           {/* Back to blog button */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-12">
             <Button onClick={() => navigate("/blog")} size="lg">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to All Articles
@@ -204,6 +205,9 @@ const BlogPost = () => {
         Share
       </Button>
           </div>
+
+          {/* Comments Section */}
+          <BlogComments postId={post.id} />
         </main>
       </article>
     </>
