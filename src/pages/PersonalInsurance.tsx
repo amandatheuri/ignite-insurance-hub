@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useState, useMemo } from "react";
 import personal from "@/assets/personal.jpg";
+import { Helmet } from "react-helmet-async";
 
 
 const PersonalInsurance = () => {
@@ -97,7 +98,14 @@ const PersonalInsurance = () => {
 
   return (
     <div className="min-h-screen bg-background">
-
+ <Helmet>
+      <title>Business Insurance | Theory Insurance</title>
+      <meta
+        name="description"
+        content="Safeguard your business operations with comprehensive commercial insurance solutions from Theory Insurance Kenya."
+      />
+      <link rel="canonical" href="https://theoryinsurance.co.ke/business-insurance" />
+    </Helmet>
   {/* Header */}
   <section className="relative py-20 md:py-24 overflow-hidden">
   <img
